@@ -4,8 +4,4 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
-
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+American in mind, Taiwanese at heart, world view. I am currently a Data Scientist at Twitter, making our homebrew experimentation platform better. I have a broad interest in Statistics, Operations Research, Economics, Machine Learning, and Computer Science. Please follow me on Twitter @_rchang.
