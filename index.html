@@ -17,7 +17,17 @@ layout: default
       </li>
     {% endfor %}
   </ul>
+  
+  <h1 class="page-heading">Presentations</h1>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  <ul class="post-list">
+      {% for presentation in site.data.settings.presentations %}
+      <li>
+        <span class="post-meta">{{ presentation.date | date: "%b %-d, %Y" }}</span>
+        <h2>
+          <a class="post-link" href="{{ presentation.url | prepend: site.baseurl }}">{{ presentation.name }}</a>
+        </h2>
+      </li>
+      {% endfor %}
+  </ul>
 </div>
