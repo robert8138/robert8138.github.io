@@ -1,0 +1,11 @@
+#-------------------------------
+## Work Section
+#
+presentations:
+- {name: Doing Practical Data Science @Zenpayroll, 
+   date: '2015-04-01 00:00:00', 
+   url: 'presentations/zenpayroll.html'}
+- {name: Experimentation at Twitter,
+   date: '2015-07-27 00:00:00',
+   url: 'presentations/experiment_at_twitter_brazil_talk.html'}
+
