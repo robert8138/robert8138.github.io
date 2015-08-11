@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Startups, Growth, and analytics need in different stages</title>
+  <meta name="description" content="Right out of graduate school, I naturally wanted to do Machine Learning and apply the most sophisticated models possible to do &#8220;high impact&#8221; work...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://yourdomain.com/jekyll/update/2015/07/26/startups-growth-and-analytics-need.html">
+  <link rel="alternate" type="application/rss+xml" title="Robert Chang's Personal Website" href="http://yourdomain.com/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Robert Chang's Personal Website</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Startups, Growth, and analytics need in different stages</h1>
+    <p class="post-meta">Jul 26, 2015</p>
+  </header>
+
+  <article class="post-content">
+    <p>Right out of graduate school, I naturally wanted to do Machine Learning and apply the most sophisticated models possible to do “high impact” work. My very first job was titled “Analytics Engineer” at Washington Post Labs, a small start-up funded by the Posts consists of 40-50 people where the product is a consumption based, news app with social integrations. At the time, there are three people on the analytics team.</p>
+
+<ul>
+  <li>Johnathon: He is the guru in maintaining reporting ETL, and anything user facing</li>
+  <li>Olga: She is the guru in data modeling, event tracking</li>
+  <li>Jay: He is the guru in processing data at scale, using Hadoop</li>
+</ul>
+
+<p>As for me, I was just an eager young mind who wanted to do modeling. In retrospective, I had no clear idea the analytics need of the organization, so there was somewhat of an interest misalignment. It is only over time that I realized that companies in different stages have different analytics needs! Twitter, Facebook, Uber, all had a humble start. The Analytics team did not start off by building some fancy ML algorithms, there are more foundational work that needs to be done such as defining KPIs, ETL, data modeling, and reporting. Optimizations only comes after a certain level of maturity is reached.</p>
+
+<p>This makes me wonder, what exactly is the role of analytics in various stages of a company’s growth? How does the emphases change over time, and most importantly, how can a DS use this knowledge to align their interests with the need of the organization?</p>
+
+<p>I started look into this, and I realized that in order to understand the analytics need, I need to understand the cycles of a growing start-ups. Recently, I ran into several posts that really helped me to understand this better.</p>
+
+<h2 id="for-those-just-started-up">For those just started up</h2>
+<p>Marc Andressen’s <a href="http://web.stanford.edu/class/ee204/ProductMarketFit.html">essay</a> is really great, as it explains for a company that just started (literally a start-up), what is the single most important goal/objective they need to achieve. His thesis is basically te following:</p>
+
+<blockquote>
+  <p>The only thing that matters is getting to product/market fit. Product/market fit means being in a good market with a product that can satisfy that market.</p>
+</blockquote>
+
+<p>He started off by discussing the three criteria VC use when evaluating a start-up:</p>
+
+<ul>
+  <li>The caliber of a startup team</li>
+  <li>The quality of a startup’s product</li>
+  <li>The size of a startup’s market</li>
+</ul>
+
+<p>Which one is the most important? Andreessen argued that most VC would say team is the most important, and people matters most. He took a different stand, and assert that market is the most important.</p>
+
+<blockquote>
+  <p>In a great market – a market with lots of real potential customers – the market pulls product out of the startup. Conversely, in a terrible market, you can have the best product in the world and an absolutely killer team, and it doesn’t matter – you’re going to fail. The #1 company-killer is lack of market</p>
+</blockquote>
+
+<p>He also mentioned that you can always tell if product/market fit is happening.</p>
+
+<blockquote>
+  <p>You can always feel when product/market fit isn’t happening. The customers aren’t quite getting value out of the product, word of mouth isn’t spreading, usage isn’t growing that fast, press reviews are kind of “blah”, the sales cycle takes too long, and lots of deals never close.</p>
+</blockquote>
+
+<blockquote>
+  <p>And you can always feel product/market fit when it’s happening. The customers are buying the product just as fast as you can make it – or usage is growing just as fast as you can add more servers. Money from customers is piling up in your company checking account. You’re hiring sales and customer support staff as fast as you can. Reporters are calling because they’ve heard about your hot new thing and they want to talk to you about it. You start getting entrepreneur of the year awards from Harvard Business School. Investment bankers are staking out your house.</p>
+</blockquote>
+
+<p>Ok, so how is this related to our topic today? If you accept the premise that the single most important objective of a start-up is to find product/market fit, then you need to do wathever is required to acheive this, according to Andreeseen, this means:</p>
+
+<blockquote>
+  <p>Including changing out people, rewriting your product, moving into a different market, telling customers no when you don’t want to, telling customers yes when you don’t want to, raising that fourth round of highly dilutive venture capital – whatever is required.</p>
+</blockquote>
+
+<p>Whatever is required, does it necessarily include Analytics? I don’t know the answer, due to my lack of start-up experience. Here are a few directions which can shed some more lights:</p>
+
+<ul>
+  <li>Look at start-ups that are looking for cofounders or early enigneers. Do they need to hire an Analytics Engineer?</li>
+  <li>At what stage does a company need to start building an Analytics team?</li>
+  <li>How did companies like Facebook, Twitter, Uber, Airbnb build out their very first Analytics team? What were the motivations.</li>
+</ul>
+
+<h2 id="post-productmarket-fit---growth">Post Product/Market Fit - Growth</h2>
+
+<p>Looking back at my two years spent at Twitter’s Growth team, I recently realized that I actually never study more in depth the function of a Growth team, how they related to the larger organization. Recently, I came across Josh Schwarzapel’s medium post titled “<a href="https://medium.com/android-news/how-to-start-a-growth-team-ff70cd29c0f2">How to Start a Growth Team</a>”, and I thought it was so interesting.</p>
+
+<p>While the purpose of the blog post might be to talk about how to start a Growth team, he mentioned quite a few distinct characteristics about a Growth team that I can really echo with.</p>
+
+<h3 id="is-your-product-ready-for-growth">Is your product ready for Growth?</h3>
+
+<blockquote>
+  <p>Growth Teams expand the value of, and customer base for a product that is already working through rapid, data-informed experimentation. The corollary to this definition is that you should not start working on growth unless your product has product/market fit.</p>
+</blockquote>
+
+<p>In Twitter’s case, the Growth team has its incarnation in various form throughout the years. By the time I joined Twitter, the particular Growth team that I was on is probably Growth Team in v.3/v.4. Twitter as a product was will beyond product/market fit, and the whole org felt a bit less like a cross-functional Growth than an org with specific product areas.</p>
+
+<p>I did learned about AARRR (Acquisition, Activation, Retention, Revenue, Referral), and each team is somewhat responsible for one of those metrics:</p>
+
+<ul>
+  <li>Acquisition: Signup Engineering, to focus on the top of the funnel</li>
+  <li>Activation: START, to focus on New User Experimence (NUX)</li>
+  <li>Retention: Notifications, which focus on sending more emails, push, and SMS</li>
+  <li>Referrals: Virality, this team was responsible for invites but was later killed</li>
+</ul>
+
+<p>That said, it really was clear to me that each team is faithfully optimizing their respective metric though. In addition, there was no notion of Growth Accounting.</p>
+
+<h3 id="who-will-be-your-executive-champion">Who will be your executive champion?</h3>
+
+<blockquote>
+  <p>Here is why getting an executive champion is so important: You’re going to work on someone else’s product. The product you’re planning to grow already has a product and engineering team, a codebase, a team culture, and often a set of priorities that have nothing to do with your own. You are going to impact all of those things when you insert yourself into their process.</p>
+</blockquote>
+
+<p>In Twitter’s case, the executive champion was Dick. There’s often confusion on why Growth is working on a particular product area, and people always complain about ownership. When the team is trying out ideas, iterate fast, learn insights, and improve upon them, people will give usually give benefits of the doubt, especially when a big exec is rallying for the team. Conversely, things can turn bad pretty quickly if the team doesn’t learn fast enough or experiment enough or be bold enough.</p>
+
+<p>In our case, the decline of the Growth team was pretty self evident when several teams started to take ownership of Growth initiated project, Instant Timeline is a good example. We also see notification infrastructure team got merged into C&amp;D, largely because those require more sophisticated optimization skill-sets like Machine Learning, which Growth does have.</p>
+
+<p>I also think that the Growth team needs to be willing to give up the projects they’ve invested heavily upfront, and be willing to extend the project’s life cycle by handing it to teams that can execute better.</p>
+
+<blockquote>
+  <p>You are going to try controversial things</p>
+</blockquote>
+
+<p>That’s another good point. Growth requires experimentation, and experimentation sometimes means trying out new and controversial things. Being able to take intelligent risks, learn quickly, and iterate seem to be an important characteristics of a good Growth team.</p>
+
+<h3 id="how-should-you-structure-your-team">How should you structure your team?</h3>
+
+<blockquote>
+  <p>First, the easy part: a Growth team is just a product team. That means you need awesome engineers, designers, and PMs. One trap I frequently hear people fall into is that they empower a PM to work on growth initiatives with no design or engineering team. The idea is that this person will learn about growth and push for it to get on other teams’ roadmaps.</p>
+</blockquote>
+
+<p>I think this certainly true. You cannot have a product without Engineers and Designers.</p>
+
+<blockquote>
+  <p>In terms of traits, Growth Team members are data-driven and aggressive, with an appetite for risk. People who are open-minded, willing to accept other possibilities. People who are skeptical of what is accepted as “Truth”, and quickly learn new things.</p>
+</blockquote>
+
+<p>Basically people who are data driven</p>
+
+<h3 id="how-should-you-spend-your-first-30-days">How should you spend your first 30 days</h3>
+
+<ul>
+  <li>Focus the team around one metric</li>
+  <li>Generate a few quick, high-impact wins and evangelize them</li>
+  <li>Start investing deeply in the tools for analytics &amp; experimentation!</li>
+</ul>
+
+<p>I can’t agree more with the last point, I think with proper investment in Analytics &amp; Experimentation, our Growth team could have function more effectively.</p>
+
+<h3 id="obviously-this-post-is-still-very-dis-organized-but-the-eventual-goal-is-to-summarize-what-are-the-analytics-need-for-the-company-at-different-stages-with-a-personal-spin-to-it">Obviously this post is still very dis-organized, but the eventual goal is to summarize what are the analytics need for the company at different stages, with a personal spin to it.</h3>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>All Rights Reserved | 2015</li>
+          <li><a href="mailto:robert8138@gmail.com">robert8138@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/robert8138">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">robert8138</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/_rchang">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">_rchang</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://quora.com/Robert-Chang-1">
+              <span class="icon  icon--twitter">
+                  <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                   width="100.000000pt" height="100.000000pt" viewBox="0 0 100.000000 100.000000"
+                    preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)"
+                    fill="#000000" stroke="none">
+                    <path d="M430 924 c-209 -45 -354 -270 -319 -494 23 -148 114 -275 239 -334
+                    59 -28 74 -31 165 -31 91 0 105 3 160 30 285 144 325 556 73 756 -90 71 -206
+                    98 -318 73z m160 -165 c95 -43 140 -117 140 -231 0 -63 -4 -80 -30 -125 -17
+                    -29 -35 -53 -40 -53 -22 0 -9 -41 16 -52 23 -11 29 -10 44 10 34 42 58 21 36
+                    -31 -31 -75 -112 -91 -169 -33 -30 30 -41 34 -99 38 -85 5 -150 43 -193 112
+                    -37 60 -47 168 -22 229 56 132 195 192 317 136z"/>
+                    <path d="M443 715 c-53 -23 -68 -64 -68 -185 0 -118 14 -159 65 -185 28 -15
+                    90 -21 90 -9 0 22 -40 66 -72 79 -45 17 -47 27 -13 43 49 22 95 13 142 -30
+                    l21 -20 8 47 c10 68 0 175 -20 213 -17 33 -66 62 -103 62 -10 -1 -32 -7 -50
+                    -15z"/>
+                    </g>
+                    </svg>
+              </span>
+
+              <span class="username">Robert-Chang-1</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://medium.com/@rchang">
+              <span class="icon  icon--twitter">
+                  <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                   width="100.000000pt" height="100.000000pt" viewBox="0 0 100.000000 100.000000"
+                    preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)"
+                    fill="#000000" stroke="none">
+                    <path d="M200 705 c0 -24 5 -35 14 -35 8 0 18 -4 21 -10 8 -13 8 -307 0 -320
+                    -3 -6 -13 -10 -21 -10 -9 0 -14 -11 -14 -35 l0 -35 90 0 90 0 0 34 c0 27 -4
+                    35 -20 38 -19 3 -20 11 -23 145 -1 78 1 139 4 135 4 -4 26 -77 49 -162 22 -85
+                    43 -163 46 -173 5 -14 14 -17 47 -15 l41 3 48 175 c26 96 50 180 52 185 3 6 5
+                    -58 5 -142 1 -150 1 -152 -21 -155 -18 -2 -23 -10 -23 -33 l0 -30 108 -3 107
+                    -3 0 36 c0 24 -5 35 -14 35 -8 0 -18 4 -21 10 -3 5 -6 77 -6 160 0 83 3 155 6
+                    160 3 6 13 10 21 10 9 0 14 11 14 35 l0 36 -112 -3 -113 -3 -35 -127 c-19 -71
+                    -37 -128 -40 -128 -3 0 -21 57 -40 128 l-35 127 -112 3 -113 3 0 -36z"/>
+                    </g>
+                    </svg>
+              </span>
+
+              <span class="username">rchang</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-4">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://www.linkedin.com/pub/robert-chang/20/b17/877">
+              <span class="icon  icon--twitter">
+                  <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                   width="100.000000pt" height="100.000000pt" viewBox="0 0 100.000000 100.000000"
+                    preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)"
+                    fill="#000000" stroke="none">
+                    <path d="M130 500 l0 -500 375 0 375 0 0 500 0 500 -375 0 -375 0 0 -500z
+                    m213 322 c26 -28 31 -75 13 -109 -20 -39 -49 -47 -81 -21 -20 15 -25 28 -25
+                    64 0 70 54 109 93 66z m355 -219 c45 -28 55 -74 60 -265 l4 -178 -56 0 -56 0
+                    0 143 c0 94 -5 150 -13 167 -17 33 -57 38 -83 9 -17 -18 -19 -39 -22 -170 l-4
+                    -149 -49 0 -49 0 0 225 0 225 50 0 c48 0 50 -1 50 -27 l0 -27 16 23 c34 48 98
+                    58 152 24z m-338 -218 l0 -225 -55 0 -55 0 0 225 0 225 55 0 55 0 0 -225z"/>
+                    </g>
+                    </svg>
+              </span>
+
+              <span class="username">robert-chang</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">This is Robert Chang's personal website, powered by Jekyll, hosted on Github
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

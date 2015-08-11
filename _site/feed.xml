@@ -6,9 +6,635 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Jul 2015 16:23:52 -0700</pubDate>
-    <lastBuildDate>Sat, 25 Jul 2015 16:23:52 -0700</lastBuildDate>
+    <pubDate>Mon, 10 Aug 2015 22:42:28 -0700</pubDate>
+    <lastBuildDate>Mon, 10 Aug 2015 22:42:28 -0700</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>EdX: Scalable Machine Learning Week 5 Notes</title>
+        <description>&lt;h3 id=&quot;lecture-highlights&quot;&gt;&lt;strong&gt;Lecture Highlights&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;h4 id=&quot;pca-recipe&quot;&gt;&lt;strong&gt;PCA recipe&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Step 1: Center Data&lt;/li&gt;
+  &lt;li&gt;Step 2: Compute Covariance Matrix&lt;/li&gt;
+  &lt;li&gt;Step 3: Eigen-decomposition&lt;/li&gt;
+  &lt;li&gt;Step 4: Compute PCA scores&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;distributed-pca&quot;&gt;&lt;strong&gt;Distributed PCA&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Case 1: Big &lt;em&gt;n&lt;/em&gt; and small &lt;em&gt;d&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;O(d^2) local storage, O(d^3) local computation, O(dk) communication &amp;lt;- this is what our lab does&lt;/li&gt;
+      &lt;li&gt;Can use eigen-decomposition routine directly&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Case 2: Big &lt;em&gt;n&lt;/em&gt; and big &lt;em&gt;d&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;O(dk + n) local storage, computation&lt;/li&gt;
+      &lt;li&gt;O(dk + n) communication&lt;/li&gt;
+      &lt;li&gt;Iterative Algorithm&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;big-n-and-small-d&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://courses.edx.org/c4x/BerkeleyX/CS190.1x/asset/CS190.1x_week5.pdf&quot;&gt;Big &lt;em&gt;n&lt;/em&gt; and small &lt;em&gt;d&lt;/em&gt;&lt;/a&gt;&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Step 1: Center Data&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Compute d-dimensional vector &lt;strong&gt;m&lt;/strong&gt;, where each element is the mean of a column&lt;/li&gt;
+      &lt;li&gt;Communicate &lt;strong&gt;m&lt;/strong&gt; to all workers&lt;/li&gt;
+      &lt;li&gt;Subtract &lt;strong&gt;m&lt;/strong&gt; from each data point&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Step 2: Compute Covariance Matrix&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;compute this matrix via &lt;strong&gt;Outer Product&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;O(nd) distributed storage, need O(d^2) local storage for each outer product. O(nd^2) distributed computation&lt;/li&gt;
+      &lt;li&gt;O(d^2) local storage and computation for covariance matrix&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Step 3: Eigen-decomposition&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Same as above, but require O(dk) communication of the k eigenvector, each d-dimensional&lt;/li&gt;
+      &lt;li&gt;Local computation of eigen-decomposition is &lt;strong&gt;O(d^3)&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Step 4: Compute PCA scores&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Multiply each point by principal components, P&lt;/li&gt;
+      &lt;li&gt;O(dk) computation. Each element is dot product on d, and k dimension&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;big-n-and-big-d&quot;&gt;&lt;strong&gt;Big &lt;em&gt;n&lt;/em&gt; and big &lt;em&gt;d&lt;/em&gt;&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The problem is that it’s computational intensive to calculate the X^T * X, and eigen-decomposition also is too computationally intensive O(d^3)&lt;/li&gt;
+  &lt;li&gt;Need to figure out a way to compute eigenvectors without resorting to eigen-decomposition&lt;/li&gt;
+  &lt;li&gt;Use &lt;a href=&quot;http://mathreview.uwaterloo.ca/archive/voli/1/panju.pdf&quot;&gt;Power Iteration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;See slides more storage/computation requirements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;lab-highlights&quot;&gt;&lt;strong&gt;Lab Highlights&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;h4 id=&quot;standard-pca-implementation&quot;&gt;Standard PCA implementation&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;estimateCovariance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pca&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;varianceExplained&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;neuroscience--pca-analysis&quot;&gt;Neuroscience &amp;amp; PCA analysis&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Data format is ((coord1, coord2), timeSeries)&lt;/li&gt;
+  &lt;li&gt;Some basic massaging of data. Normalization…etc&lt;/li&gt;
+  &lt;li&gt;Feature-based aggregation and PCA is eye-opening
+    &lt;ul&gt;
+      &lt;li&gt;Learned about numpy &lt;code&gt;np.tile&lt;/code&gt;, &lt;code&gt;np.eye&lt;/code&gt;, &lt;code&gt;np.ones&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Learned about Kronecker product&lt;/li&gt;
+      &lt;li&gt;Learned how we can aggregate feature by left multiply these specific matrices from above&lt;/li&gt;
+      &lt;li&gt;Did some exercise to create these aggregation matrices using the basic &lt;code&gt;np.*&lt;/code&gt; mentioned above&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PCA with aggregating feature by time
+    &lt;ul&gt;
+      &lt;li&gt;Aggregate feature&lt;/li&gt;
+      &lt;li&gt;Apply PCA&lt;/li&gt;
+      &lt;li&gt;Plot&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PCA with aggregating feature by direction
+    &lt;ul&gt;
+      &lt;li&gt;Aggregate feature&lt;/li&gt;
+      &lt;li&gt;Apply PCA&lt;/li&gt;
+      &lt;li&gt;Plot&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 08 Aug 2015 08:00:00 -0700</pubDate>
+        <link>http://yourdomain.com/2015/08/08/edx-scalable-machine-learning-week-5.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/2015/08/08/edx-scalable-machine-learning-week-5.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>EdX: Scalable Machine Learning Week 4 Notes</title>
+        <description>&lt;h3 id=&quot;lecture-highlights&quot;&gt;&lt;strong&gt;Lecture Highlights&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;CTR prediction&lt;/strong&gt; is the canonical Machine Learning problem involving Logistic Regression&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Players&lt;/strong&gt; involve:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;em&gt;Publishers&lt;/em&gt;: Make money displaying Ads on their sites (e.g. NYTimes)&lt;/li&gt;
+      &lt;li&gt;&lt;em&gt;Matchmakers&lt;/em&gt;: Match publishers with advertisers (e.g. Mopub, Google)&lt;/li&gt;
+      &lt;li&gt;&lt;em&gt;Advertisers&lt;/em&gt;: Pay for their ads to be displayed. Want to attract business and drive conversion (e.g. Marc Jacob)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CTR prediction using &lt;strong&gt;logistic regression model&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Observations are user-ad-publisher triplets&lt;/li&gt;
+      &lt;li&gt;Labels are {not-click, click}&lt;/li&gt;
+      &lt;li&gt;Given a set of labeled observations, we want to predict whether a new user-ad-publisher triplet will result in a click&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Evaluation Criterion&lt;/strong&gt; is typically 0-1 loss: penalty is 0 for correct prediction, and 1 otherwise
+    &lt;ul&gt;
+      &lt;li&gt;0-1 loss function is not convex, so we approximate it&lt;/li&gt;
+      &lt;li&gt;SVM (hinge), Logistic Regression (log-loss), Adaboost (exponential)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ROC curve&lt;/strong&gt; plots False Positive Rate with True Positive Rate
+    &lt;ul&gt;
+      &lt;li&gt;A random classifier will fall on 45 degree line, depending on the threshold. Not hard to think about, since the denominator for FP is negative examples, and TP is positive examples. A random classifier with threshold t would just predict + with t% of the time. This is true for both FP and TP, so the performance would fall on 45 degree line.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Again, remember the &lt;strong&gt;intuition of log-loss&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;categorical-data-and-feature-encoding&quot;&gt;&lt;strong&gt;Categorical Data and Feature Encoding&lt;/strong&gt;:&lt;/h4&gt;
+&lt;p&gt;Raw data is often non-numeric, how do we handle them?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use Method that support categorical feature (Decision tree, Naive Bayes), but model options are limited&lt;/li&gt;
+  &lt;li&gt;Convert these categorical features to numeric feature
+    &lt;ul&gt;
+      &lt;li&gt;Encode category to numeric. e.g. cat1 = 1, cat2 = 2, catx = x …etc. Not good!! since this introduces inherent ordering, which might not be there. (ordinal - not ideal, categorial - bad)&lt;/li&gt;
+      &lt;li&gt;Better approaches include (One-Hot-Encoding) &amp;amp; (Feature Hashing)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;one-hot-encoding&quot;&gt;&lt;strong&gt;One-Hot-Encoding&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Step 1: Create OHE Dictionary. See &lt;a href=&quot;https://courses.edx.org/c4x/BerkeleyX/CS190.1x/asset/CS190.1x_week4b.pdf&quot;&gt;Slide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Step 2: Create Features with Dictionary (bag of word dictionary from training set)&lt;/li&gt;
+  &lt;li&gt;Step 3: Create Sparse OHE feature&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Animal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;bear&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;mouse&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tabby&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;} &lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;=&amp;gt; &lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;(Animal, &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bear&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;) =&amp;gt; 0, (Animal, &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cat&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;) =&amp;gt; 1, (Animal, &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mouse&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;) =&amp;gt; 2, (Color, &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;) =&amp;gt; 3, ...etc&lt;/span&gt;
+
+&lt;span class=&quot;s1&quot;&gt;A1 = [&amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mouse&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;A1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;A1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;A1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;OHE suffers from some issues. &lt;strong&gt;Statistically&lt;/strong&gt;: inefficient learning. &lt;strong&gt;Computationally&lt;/strong&gt;: increased communication in parallel algorithm. Can reduce dimension by discarding rare features, but might throw away useful information.&lt;/p&gt;
+
+&lt;h4 id=&quot;feature-hashing&quot;&gt;&lt;strong&gt;Feature Hashing&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use hashing principle to reduce feature dimension&lt;/li&gt;
+  &lt;li&gt;Obviates need to compute expensive OHE dictionary&lt;/li&gt;
+  &lt;li&gt;Preserves sparsity&lt;/li&gt;
+  &lt;li&gt;Theoretical underpinning - approximate OHE dot-product-ing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;ss&quot;&gt;Daatapoints&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;feature&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;categories&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;buckets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;A1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;mouse&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Animal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;mouse&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;black&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;A1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;A2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;tabby&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;mouse&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Animal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cat&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tabby&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;H&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Diet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mouse&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;A2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;labs-highlights&quot;&gt;&lt;strong&gt;Labs Highlights&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A good practice in coding is if you need to do some complex operation/transformation, it’s always good to try it out on a few sample examples. Write tests to verify that you understand how it works before moving on and apply it to the whole dataset. Once you understand how it works, you can define the transformation function.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;one-hot-encoding-1&quot;&gt;&lt;strong&gt;One Hot Encoding&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Step 1: Extract features&lt;/li&gt;
+  &lt;li&gt;Step 2: Create a Dictionary&lt;/li&gt;
+  &lt;li&gt;Step 3: Create the OHE function&lt;/li&gt;
+  &lt;li&gt;Step 4: Use OHE to create proper training data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Extract features&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parsePoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Converts a comma separated string into a list of (featureID, value) tuples.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Note:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        featureIDs should start at 0 and increase to the number of features - 1.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Args:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        point (str): A comma separated string where the first value is the label and the rest&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            are features.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Returns:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        list: A list of (featureID, value) tuples.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;featureVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;featureVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Automated creation of an OHE dictionary&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;createOneHotDict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inputData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Creates a one-hot-encoder dictionary based on the input data.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Args:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        inputData (RDD of lists of (int, str)): An RDD of observations where each observation is&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            made up of a list of (featureID, value) tuples.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Returns:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        dict: A dictionary where the keys are (featureID, value) tuples and map to values that are&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            unique integers.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;DistinctFeats&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inputData&lt;/span&gt;
+                     &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flatMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                     &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distinct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;OHEDict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DistinctFeats&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zipWithIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collectAsMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OHEDict&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Create oneHotEncoding function&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;oneHotEncoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OHEDict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numOHEFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Produce a one-hot-encoding from a list of features and an OHE dictionary.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Note:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        You should ensure that the indices used to create a SparseVector are sorted.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Args:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        rawFeats (list of (int, str)): The features corresponding to a single observation.  Each&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            feature consists of a tuple of featureID and the feature&amp;#39;s value. (e.g. sampleOne)&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        OHEDict (dict): A mapping of (featureID, value) to unique integer.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        numOHEFeats (int): The total number of unique OHE features (combinations of featureID and&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            value).&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Returns:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        SparseVector: A SparseVector of length numOHEFeats with indicies equal to the unique&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            identifiers for the (featureID, value) combinations that occur in the observation and&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            with values equal to 1.0.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OHEDict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;featureValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;featureValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SparseVector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numOHEFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Generate Training Set using LabeledPoint&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parseOHEPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OHEDict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numOHEFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Obtain the label and feature vector for this raw observation.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Note:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        You must use the function `oneHotEncoding` in this implementation or later portions&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        of this lab may not function as expected.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Args:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        point (str): A comma separated string where the first value is the label and the rest&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            are features.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        OHEDict (dict of (int, str) to int): Mapping of (featureID, value) to unique integer.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        numOHEFeats (int): The number of unique features in the training dataset.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Returns:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        LabeledPoint: Contains the label for the observation and the one-hot-encoding of the&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            raw features based on the provided OHE dictionary.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rawFeatures&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;featureVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;featureVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;features&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oneHotEncoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rawFeatures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OHEDict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numOHEFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LabeledPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;features&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;logistic-regression-modeling&quot;&gt;&lt;strong&gt;Logistic Regression Modeling&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Step 1: Define Compute Log Loss function&lt;/li&gt;
+  &lt;li&gt;Step 2: Compute Baseline Logloss&lt;/li&gt;
+  &lt;li&gt;Step 3: Compute Model logloss&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Compute Log Loss&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;computeLogLoss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Calculates the value of log loss for a given probabilty and label.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Note:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        log(0) is undefined, so when p is 0 we need to add a small value (epsilon) to it&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        and when p is 1 we need to subtract a small value (epsilon) from it.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Args:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        p (float): A probabilty between 0 and 1.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        y (int): A label.  Takes on the values 0 and 1.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Returns:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        float: The log loss value.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;    
+    &lt;span class=&quot;n&quot;&gt;epsilon&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;10e-12&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epsilon&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epsilon&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Baseline Log Loss&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;classOneFracTrain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OHETrainData&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OHETrainData&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;classOneFracTrain&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;logLossTrBase&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OHETrainData&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;computeLogLoss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;classOneFracTrain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OHETrainData&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Compute Model Logloss&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;model0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LogisticRegressionWithSGD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OHETrainData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                                         &lt;span class=&quot;n&quot;&gt;iterations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numIters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                                         &lt;span class=&quot;n&quot;&gt;step&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stepSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                                         &lt;span class=&quot;n&quot;&gt;miniBatchFraction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                                         &lt;span class=&quot;n&quot;&gt;initialWeights&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                                         &lt;span class=&quot;n&quot;&gt;regParam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;regParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                                         &lt;span class=&quot;n&quot;&gt;regType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;regType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                                         &lt;span class=&quot;n&quot;&gt;intercept&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;includeIntercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Define prediction function&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;intercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Calculate the probability for an observation given a set of weights and intercept.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Note:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        We&amp;#39;ll bound our raw prediction between 20 and -20 for numerical purposes.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Args:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        x (SparseVector): A vector with values of 1.0 for features that exist in this&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            observation and 0.0 otherwise.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        w (DenseVector): A vector of weights (betas) for the model.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        intercept (float): The model&amp;#39;s intercept.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Returns:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        float: A probability between 0 and 1.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rawPrediction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;intercept&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Bound the raw prediction value&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rawPrediction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rawPrediction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rawPrediction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rawPrediction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sigmoid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rawPrediction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sigmoid&lt;/span&gt;
+    
+&lt;span class=&quot;n&quot;&gt;trainingPredictions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OHETrainData&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;features&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weights&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;intercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Evaluate the model&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;evaluateResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Calculates the log loss for the data given the model.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Args:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        model (LogisticRegressionModel): A trained logistic regression model.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        data (RDD of LabeledPoint): Labels and features for each observation.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Returns:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        float: Log loss for the data.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;resultVector&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;computeLogLoss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;features&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weights&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;intercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultVector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resultVector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    
+&lt;span class=&quot;n&quot;&gt;logLossTrLR0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;evaluateResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OHETrainData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;feature-hashing-1&quot;&gt;&lt;strong&gt;Feature Hashing&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Step 1: Create Hash function&lt;/li&gt;
+  &lt;li&gt;Step 2: Create Hashed feature&lt;/li&gt;
+  &lt;li&gt;Step 3: Train Model based on hashed features&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hashFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numBuckets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;printMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Calculate a feature dictionary for an observation&amp;#39;s features based on hashing.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Note:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        Use printMapping=True for debug purposes and to better understand how the hashing works.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Args:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        numBuckets (int): Number of buckets to use as features.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        rawFeats (list of (int, str)): A list of features for an observation.  Represented as&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            (featureID, value) tuples.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        printMapping (bool, optional): If true, the mappings of featureString to index will be&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            printed.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Returns:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        dict of int to float:  The keys will be integers which represent the buckets that the&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            features have been hashed to.  The value for a given key will contain the count of the&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            (featureID, value) tuples that have hashed to that key.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mapping&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;category&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;featureString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;category&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hashlib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hexdigest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numBuckets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printMapping&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mapping&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sparseFeatures&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaultdict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bucket&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sparseFeatures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bucket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sparseFeatures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Create Hashed feature&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parseHashPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numBuckets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;Create a LabeledPoint for this observation using hashing.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Args:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        point (str): A comma separated string where the first value is the label and the rest are&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            features.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        numBuckets: The number of buckets to hash to.&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;    Returns:&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        LabeledPoint: A LabeledPoint with a label (0.0 or 1.0) and a SparseVector of hashed&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;            features.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#zipWIthIndex&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rawFeaturePairs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;featureVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featureID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;featureVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rawFeats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;hashedFeature&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hashFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numBuckets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rawFeaturePairs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;SparsedHashedFeature&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SparseVector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numBuckets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hashedFeature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LabeledPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SparsedHashedFeature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Train a logistic regression model based on hashed features&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;stepSizes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;regParams&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1e-6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1e-3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stepSize&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stepSizes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;regParam&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;regParams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LogisticRegressionWithSGD&lt;/span&gt;
+                 &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hashTrainData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numIters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stepSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;regParam&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;regParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;regType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;regType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;intercept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;includeIntercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;logLossVa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;evaluateResults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hashValidationData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;stepSize = {0:.1f}, regParam = {1:.0e}: logloss = {2:.3f}&amp;#39;&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stepSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;regParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logLossVa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logLossVa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bestLogLoss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;bestModel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;bestLogLoss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logLossVa&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sat, 01 Aug 2015 08:00:00 -0700</pubDate>
+        <link>http://yourdomain.com/2015/08/01/edx-scalable-machine-learning-week-4.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/2015/08/01/edx-scalable-machine-learning-week-4.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Startups, Growth, and analytics need in different stages</title>
+        <description>&lt;p&gt;Right out of graduate school, I naturally wanted to do Machine Learning and apply the most sophisticated models possible to do “high impact” work. My very first job was titled “Analytics Engineer” at Washington Post Labs, a small start-up funded by the Posts consists of 40-50 people where the product is a consumption based, news app with social integrations. At the time, there are three people on the analytics team.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Johnathon: He is the guru in maintaining reporting ETL, and anything user facing&lt;/li&gt;
+  &lt;li&gt;Olga: She is the guru in data modeling, event tracking&lt;/li&gt;
+  &lt;li&gt;Jay: He is the guru in processing data at scale, using Hadoop&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As for me, I was just an eager young mind who wanted to do modeling. In retrospective, I had no clear idea the analytics need of the organization, so there was somewhat of an interest misalignment. It is only over time that I realized that companies in different stages have different analytics needs! Twitter, Facebook, Uber, all had a humble start. The Analytics team did not start off by building some fancy ML algorithms, there are more foundational work that needs to be done such as defining KPIs, ETL, data modeling, and reporting. Optimizations only comes after a certain level of maturity is reached.&lt;/p&gt;
+
+&lt;p&gt;This makes me wonder, what exactly is the role of analytics in various stages of a company’s growth? How does the emphases change over time, and most importantly, how can a DS use this knowledge to align their interests with the need of the organization?&lt;/p&gt;
+
+&lt;p&gt;I started look into this, and I realized that in order to understand the analytics need, I need to understand the cycles of a growing start-ups. Recently, I ran into several posts that really helped me to understand this better.&lt;/p&gt;
+
+&lt;h2 id=&quot;for-those-just-started-up&quot;&gt;For those just started up&lt;/h2&gt;
+&lt;p&gt;Marc Andressen’s &lt;a href=&quot;http://web.stanford.edu/class/ee204/ProductMarketFit.html&quot;&gt;essay&lt;/a&gt; is really great, as it explains for a company that just started (literally a start-up), what is the single most important goal/objective they need to achieve. His thesis is basically te following:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The only thing that matters is getting to product/market fit. Product/market fit means being in a good market with a product that can satisfy that market.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;He started off by discussing the three criteria VC use when evaluating a start-up:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The caliber of a startup team&lt;/li&gt;
+  &lt;li&gt;The quality of a startup’s product&lt;/li&gt;
+  &lt;li&gt;The size of a startup’s market&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Which one is the most important? Andreessen argued that most VC would say team is the most important, and people matters most. He took a different stand, and assert that market is the most important.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In a great market – a market with lots of real potential customers – the market pulls product out of the startup. Conversely, in a terrible market, you can have the best product in the world and an absolutely killer team, and it doesn’t matter – you’re going to fail. The #1 company-killer is lack of market&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;He also mentioned that you can always tell if product/market fit is happening.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You can always feel when product/market fit isn’t happening. The customers aren’t quite getting value out of the product, word of mouth isn’t spreading, usage isn’t growing that fast, press reviews are kind of “blah”, the sales cycle takes too long, and lots of deals never close.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;And you can always feel product/market fit when it’s happening. The customers are buying the product just as fast as you can make it – or usage is growing just as fast as you can add more servers. Money from customers is piling up in your company checking account. You’re hiring sales and customer support staff as fast as you can. Reporters are calling because they’ve heard about your hot new thing and they want to talk to you about it. You start getting entrepreneur of the year awards from Harvard Business School. Investment bankers are staking out your house.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ok, so how is this related to our topic today? If you accept the premise that the single most important objective of a start-up is to find product/market fit, then you need to do wathever is required to acheive this, according to Andreeseen, this means:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Including changing out people, rewriting your product, moving into a different market, telling customers no when you don’t want to, telling customers yes when you don’t want to, raising that fourth round of highly dilutive venture capital – whatever is required.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Whatever is required, does it necessarily include Analytics? I don’t know the answer, due to my lack of start-up experience. Here are a few directions which can shed some more lights:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Look at start-ups that are looking for cofounders or early enigneers. Do they need to hire an Analytics Engineer?&lt;/li&gt;
+  &lt;li&gt;At what stage does a company need to start building an Analytics team?&lt;/li&gt;
+  &lt;li&gt;How did companies like Facebook, Twitter, Uber, Airbnb build out their very first Analytics team? What were the motivations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;post-productmarket-fit---growth&quot;&gt;Post Product/Market Fit - Growth&lt;/h2&gt;
+
+&lt;p&gt;Looking back at my two years spent at Twitter’s Growth team, I recently realized that I actually never study more in depth the function of a Growth team, how they related to the larger organization. Recently, I came across Josh Schwarzapel’s medium post titled “&lt;a href=&quot;https://medium.com/android-news/how-to-start-a-growth-team-ff70cd29c0f2&quot;&gt;How to Start a Growth Team&lt;/a&gt;”, and I thought it was so interesting.&lt;/p&gt;
+
+&lt;p&gt;While the purpose of the blog post might be to talk about how to start a Growth team, he mentioned quite a few distinct characteristics about a Growth team that I can really echo with.&lt;/p&gt;
+
+&lt;h3 id=&quot;is-your-product-ready-for-growth&quot;&gt;Is your product ready for Growth?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Growth Teams expand the value of, and customer base for a product that is already working through rapid, data-informed experimentation. The corollary to this definition is that you should not start working on growth unless your product has product/market fit.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In Twitter’s case, the Growth team has its incarnation in various form throughout the years. By the time I joined Twitter, the particular Growth team that I was on is probably Growth Team in v.3/v.4. Twitter as a product was will beyond product/market fit, and the whole org felt a bit less like a cross-functional Growth than an org with specific product areas.&lt;/p&gt;
+
+&lt;p&gt;I did learned about AARRR (Acquisition, Activation, Retention, Revenue, Referral), and each team is somewhat responsible for one of those metrics:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Acquisition: Signup Engineering, to focus on the top of the funnel&lt;/li&gt;
+  &lt;li&gt;Activation: START, to focus on New User Experimence (NUX)&lt;/li&gt;
+  &lt;li&gt;Retention: Notifications, which focus on sending more emails, push, and SMS&lt;/li&gt;
+  &lt;li&gt;Referrals: Virality, this team was responsible for invites but was later killed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That said, it really was clear to me that each team is faithfully optimizing their respective metric though. In addition, there was no notion of Growth Accounting.&lt;/p&gt;
+
+&lt;h3 id=&quot;who-will-be-your-executive-champion&quot;&gt;Who will be your executive champion?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Here is why getting an executive champion is so important: You’re going to work on someone else’s product. The product you’re planning to grow already has a product and engineering team, a codebase, a team culture, and often a set of priorities that have nothing to do with your own. You are going to impact all of those things when you insert yourself into their process.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In Twitter’s case, the executive champion was Dick. There’s often confusion on why Growth is working on a particular product area, and people always complain about ownership. When the team is trying out ideas, iterate fast, learn insights, and improve upon them, people will give usually give benefits of the doubt, especially when a big exec is rallying for the team. Conversely, things can turn bad pretty quickly if the team doesn’t learn fast enough or experiment enough or be bold enough.&lt;/p&gt;
+
+&lt;p&gt;In our case, the decline of the Growth team was pretty self evident when several teams started to take ownership of Growth initiated project, Instant Timeline is a good example. We also see notification infrastructure team got merged into C&amp;amp;D, largely because those require more sophisticated optimization skill-sets like Machine Learning, which Growth does have.&lt;/p&gt;
+
+&lt;p&gt;I also think that the Growth team needs to be willing to give up the projects they’ve invested heavily upfront, and be willing to extend the project’s life cycle by handing it to teams that can execute better.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You are going to try controversial things&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That’s another good point. Growth requires experimentation, and experimentation sometimes means trying out new and controversial things. Being able to take intelligent risks, learn quickly, and iterate seem to be an important characteristics of a good Growth team.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-should-you-structure-your-team&quot;&gt;How should you structure your team?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;First, the easy part: a Growth team is just a product team. That means you need awesome engineers, designers, and PMs. One trap I frequently hear people fall into is that they empower a PM to work on growth initiatives with no design or engineering team. The idea is that this person will learn about growth and push for it to get on other teams’ roadmaps.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I think this certainly true. You cannot have a product without Engineers and Designers.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In terms of traits, Growth Team members are data-driven and aggressive, with an appetite for risk. People who are open-minded, willing to accept other possibilities. People who are skeptical of what is accepted as “Truth”, and quickly learn new things.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Basically people who are data driven&lt;/p&gt;
+
+&lt;h3 id=&quot;how-should-you-spend-your-first-30-days&quot;&gt;How should you spend your first 30 days&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Focus the team around one metric&lt;/li&gt;
+  &lt;li&gt;Generate a few quick, high-impact wins and evangelize them&lt;/li&gt;
+  &lt;li&gt;Start investing deeply in the tools for analytics &amp;amp; experimentation!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I can’t agree more with the last point, I think with proper investment in Analytics &amp;amp; Experimentation, our Growth team could have function more effectively.&lt;/p&gt;
+
+&lt;h3 id=&quot;obviously-this-post-is-still-very-dis-organized-but-the-eventual-goal-is-to-summarize-what-are-the-analytics-need-for-the-company-at-different-stages-with-a-personal-spin-to-it&quot;&gt;Obviously this post is still very dis-organized, but the eventual goal is to summarize what are the analytics need for the company at different stages, with a personal spin to it.&lt;/h3&gt;
+
+</description>
+        <pubDate>Sun, 26 Jul 2015 05:00:00 -0700</pubDate>
+        <link>http://yourdomain.com/jekyll/update/2015/07/26/startups-growth-and-analytics-need.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2015/07/26/startups-growth-and-analytics-need.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
     
       <item>
         <title>EdX: Scalable Machine Learning Week 3 Notes</title>
@@ -306,6 +932,16 @@
   &lt;li&gt;
     &lt;p&gt;You can totally just copy the jekyll directory into your githubUserName.github.io, push the changes, and the site would totally work under this domain. Here is &lt;a href=&quot;https://github.com/robert8138/robert8138.github.io&quot;&gt;mine&lt;/a&gt; as an example.&lt;/p&gt;
   &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;todo&quot;&gt;TODO&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add Quora, Medium signs&lt;/li&gt;
+  &lt;li&gt;Add presentation from cdk&lt;/li&gt;
+  &lt;li&gt;Add my own domain&lt;/li&gt;
+  &lt;li&gt;Add better styling, using Artist themes stuff&lt;/li&gt;
+  &lt;li&gt;Add Google Analytics Tracking&lt;/li&gt;
+  &lt;li&gt;Add Comments&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>

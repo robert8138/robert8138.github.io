@@ -30,6 +30,15 @@ jekyll serve --watch
 
 * You can totally just copy the jekyll directory into your githubUserName.github.io, push the changes, and the site would totally work under this domain. Here is [mine] as an example.
 
+# TODO
+* Add Quora, Medium signs
+* Add presentation from cdk
+* Add my own domain 
+* Add better styling, using Artist themes stuff
+* Add Google Analytics Tracking
+* Add Comments
+
+
 [jekyllrb.com]: http://jekyllrb.com/
 [Artist's Theme]: https://github.com/DevTips/Artists-Theme
 [Poole]: https://github.com/poole/poole
