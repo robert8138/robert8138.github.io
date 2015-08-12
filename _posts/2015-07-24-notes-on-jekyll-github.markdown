@@ -4,7 +4,7 @@ title:  "Resources for builing your own website using Jekyll and Github"
 date:   2015-07-24 10:27:08
 ---
 
-# Resources
+# **Resources**
 
 * To build a Jekyll project, simply follow the instruction on [jekyllrb.com]
 
@@ -30,14 +30,45 @@ jekyll serve --watch
 
 * You can totally just copy the jekyll directory into your githubUserName.github.io, push the changes, and the site would totally work under this domain. Here is [mine] as an example.
 
-# TODO
+# **TODO**
 * Add Quora, Medium signs
 * Add presentation from cdk
-* Add my own domain 
+* Add my own domain
 * Add better styling, using Artist themes stuff
 * Add Google Analytics Tracking
 * Add Comments
 
+## **Set up a custom domain for github pages**
+
+It's a bit confusing what is the right steps to take, so here they are:
+
+### Set up a domain from goDaddy
+
+First, if you don't already have a domain, you should go to [godaddy.com]  to set up one. It will cost a small amount of money to acquire and own a domain. 
+
+![Godaddy](/images/godaddy.png)
+
+### Create a CNAME file in your repo
+This is pretty straightforward. In the CNAME (no extension) file, simply list out your website name. 
+
+### Set up cloudfare for redirects
+
+Cloudfare is free, and it allows you to set up redirects. I think the basic redirect flows happens in the following way: ihsiangchang.com -> github's global content delivery network IP -> CNAME -> sees the name of the website -> robert8138.github.io
+
+The important thing in this step is that you need to:
+
+* Set up two type A (?) which links your website to Github's IPs
+* Set up CNAME type with name=www and value=robert8138.github.io
+* Set up new Nameservers using CloudFlare's nameservers!
+
+![cloudfare](/images/cloudfare.png)
+
+### Update Nameservers
+Once you have the new nameserver, you need to go back to godaddy and update them accordingly.
+
+### That's it
+
+After a few minutes up to 48 hours, you should see your domain works like a charm!
 
 [jekyllrb.com]: http://jekyllrb.com/
 [Artist's Theme]: https://github.com/DevTips/Artists-Theme
@@ -45,4 +76,4 @@ jekyll serve --watch
 [Jekyll Bootstrap Themes]: http://themes.jekyllbootstrap.com/
 [YouTube]: https://www.youtube.com/watch?v=O7NBEFmA7yA
 [mine]: https://github.com/robert8138/robert8138.github.io
-
+[godaddy.com]: https://www.godaddy.com
