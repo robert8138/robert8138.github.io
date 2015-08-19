@@ -2,6 +2,7 @@
 layout: post
 title:  "EdX: Intro to Big Data with Spark Week 2 Notes"
 date:   2015-08-15 14:00:00
+comments: True
 ---
 
 ### **Lecture Highlights**

@@ -2,6 +2,7 @@
 layout: post
 title:  "Coursera: Notes on Time Series"
 date:   2015-08-15 15:00:00
+comments: True
 ---
 
 ### **Stationary Processes** ###

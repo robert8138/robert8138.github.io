@@ -2,6 +2,7 @@
 layout: post
 title:  "Resources for builing your own website using Jekyll and Github"
 date:   2015-07-24 10:27:08
+comments: True
 ---
 
 # **Resources**

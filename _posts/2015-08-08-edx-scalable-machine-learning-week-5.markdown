@@ -2,6 +2,7 @@
 layout: post
 title:  "EdX: Scalable Machine Learning Week 5 Notes"
 date:   2015-08-08 15:00:00
+comments: True
 ---
 ### **Lecture Highlights**
 
