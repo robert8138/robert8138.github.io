@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "EdX: Intro to Big Data with Spark Week 3 Notes"
+title:  "EdX: Intro to Big Data with Spark Week 4 Notes"
 date:   2015-08-22 16:00:00
 comments: True
 ---
