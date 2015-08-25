@@ -4,6 +4,7 @@ title:  "EdX: Scalable Machine Learning Week 3 Notes"
 date:   2015-07-25 15:00:00
 comments: True
 ---
+Learn about the basics of distributed ML. Create a baseline model, linear regression using GD, hyperparameter tuning using grid search. Modularize code and provide relevant documentation.
 
 ### Lecture Summary
 
