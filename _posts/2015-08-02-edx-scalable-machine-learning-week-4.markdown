@@ -4,6 +4,8 @@ title:  "EdX: Scalable Machine Learning Week 4 Notes"
 date:   2015-08-01 15:00:00
 comments: True
 ---
+Learn how to build a Click Prediction Model using Logistic Regression. Furthermore, learn how to use Feature hashing to make your model more space efficient.
+
 ### **Lecture Highlights**
 
 * **CTR prediction** is the canonical Machine Learning problem involving Logistic Regression
@@ -33,7 +35,7 @@ Raw data is often non-numeric, how do we handle them?
   * Use Method that support categorical feature (Decision tree, Naive Bayes), but model options are limited
   * Convert these categorical features to numeric feature
     * Encode category to numeric. e.g. cat1 = 1, cat2 = 2, catx = x ...etc. Not good!! since this introduces inherent ordering, which might not be there. (ordinal - not ideal, categorial - bad)
-    * Better approaches include (One-Hot-Encoding) & (Feature Hashing)
+    * Better approaches include (One-Hot-Encoding) & (Feature Hashing). Check out [Feature Hashing] Wikipedia page
 
 #### **One-Hot-Encoding**
 
@@ -362,3 +364,5 @@ for stepSize in stepSizes:
             bestModel = model
             bestLogLoss = logLossVa
 {% endhighlight %}
+
+[Feature Hashing]: https://en.wikipedia.org/wiki/Feature_hashing

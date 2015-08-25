@@ -4,6 +4,8 @@ title:  "EdX: Scalable Machine Learning Week 5 Notes"
 date:   2015-08-08 15:00:00
 comments: True
 ---
+Learn distributed PCA. Learn numpy np.tile, np.eye, np.ones, and feature aggregation
+
 ### **Lecture Highlights**
 
 #### **PCA recipe**

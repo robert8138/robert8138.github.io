@@ -4,6 +4,7 @@ title:  "Coursera: Notes on Time Series"
 date:   2015-08-15 15:00:00
 comments: True
 ---
+A brief introduction to stationary and non-stationary processes. Will leave fitting & forecasting to a future post
 
 ### **Stationary Processes** ###
 

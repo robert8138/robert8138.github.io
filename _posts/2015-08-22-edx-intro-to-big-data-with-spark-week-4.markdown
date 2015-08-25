@@ -4,6 +4,7 @@ title:  "EdX: Intro to Big Data with Spark Week 4 Notes"
 date:   2015-08-22 16:00:00
 comments: True
 ---
+Entity Resolution, Bag of Words model, Bag of words with TFIDF weights, cosine similarity, Scalable ER using forward index
 
 ### **Lecture Highlights**
 

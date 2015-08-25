@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "Resources for builing your own website using Jekyll and Github"
+title:  "Resources for builing your own website using Jekyll on Github"
 date:   2015-07-24 10:27:08
 comments: True
 ---
+A tutorial to seemlessly set up your own blog using Jekyll on Github. You should expect to learn how to set up your own domain, google analytics, commenting feature, and customize your blog theme to your own style!
 
 # **Resources**
 
@@ -24,6 +25,7 @@ jekyll serve --watch
   * [Artist's Theme] from Devtips. This one is pretty fancy, and has interactivity, and is more tailored for designers
   * [Poole] Very minimalistic look
   * [Jekyll Bootstrap Themes] Various Twitter Bootstrap themes
+  * [More Jekyll themes] This is the best collections I have seen
 
 
 * I also found the following [YouTube] video to be helpful to get started. Allegedly, this is the most viewed Jekyll/Github video I can find on YouTube on this topic.
@@ -34,10 +36,11 @@ jekyll serve --watch
 # **TODO**
 * Add Quora, Medium signs
 * Add presentation from cdk
-* Add my own domain
+* Add my own domain via CNAME
 * Add better styling, using Artist themes stuff
 * Add Google Analytics Tracking
 * Add Comments
+* Add Archive Page
 
 ## **Set up a custom domain for github pages**
 
@@ -78,3 +81,4 @@ After a few minutes up to 48 hours, you should see your domain works like a char
 [YouTube]: https://www.youtube.com/watch?v=O7NBEFmA7yA
 [mine]: https://github.com/robert8138/robert8138.github.io
 [godaddy.com]: https://www.godaddy.com
+[More Jekyll themes]: http://jekyllthemes.org/

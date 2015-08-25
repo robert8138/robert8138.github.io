@@ -4,6 +4,7 @@ title:  "EdX: Intro to Big Data with Spark Week 3 Notes"
 date:   2015-08-15 14:00:00
 comments: True
 ---
+A summary of Spark RDD operations: collect, groupByKey, reduceByKey, sortByKey, zipWithIndex, takeOrdered, join ...etc
 
 ### **Lecture Highlights**
 
