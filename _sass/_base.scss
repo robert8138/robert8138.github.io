@@ -93,7 +93,8 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        // Disable this for now, since I want to keep the colors of the links on posts/presentations
+        // color: darken($brand-color, 15%);
     }
 
     &:hover {
