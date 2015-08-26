@@ -26,7 +26,7 @@ layout: default
       <li>
         <span class="post-meta">{{ presentation.date | date: "%b %-d, %Y" }}</span>
         <h2>
-          <a class="post-link" href="{{ presentation.url | prepend: site.baseurl }}">{{ presentation.name }}</a>
+          <a class="presentation-link" href="{{ presentation.url | prepend: site.baseurl }}">{{ presentation.name }}</a>
         </h2>
       </li>
       {% endfor %}
