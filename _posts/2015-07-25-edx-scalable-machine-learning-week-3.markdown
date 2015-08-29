@@ -6,7 +6,7 @@ comments: True
 ---
 Learn about the basics of distributed ML. Create a baseline model, linear regression using GD, hyperparameter tuning using grid search. Modularize code and provide relevant documentation.
 
-### Lecture Summary
+### **Lecture Hightlights**
 
 * Big Picture: Supervised Learning Pipeline
 	
@@ -41,7 +41,7 @@ Learn about the basics of distributed ML. Create a baseline model, linear regres
 		* Stay local (model, data parallel)
 		* Reduce iteration (mini-batching)
 
-### Lab 3 Summary
+### **Lab Highlights**
 
 In this lab, we get hands on with training a linear regression model in Spark. The task is to predict song release year based on 12 different audio features (I didn't check what they are), and the main emphases are on:
 
@@ -78,11 +78,10 @@ Break data into training, validation, and test set
 {% highlight python %}
 weights = [.8, .1, .1]
 seed = 42
-parsedTrainData, parsedValData, parsedTestData = parsedData.<FILL IN>
-parsedTrainData.<FILL IN>
-parsedValData.<FILL IN>
-parsedTestData.<FILL IN>
-
+parsedTrainData, parsedValData, parsedTestData = parsedData.randomSplit(weights, seed)
+parsedTrainData.cache()
+parsedValData.cache()
+parsedTestData.cache()
 {% endhighlight %}
 
 #### Part 2: Create and Evaluate a baseline model
@@ -93,33 +92,32 @@ The beauty here is how we break up the work, we create **getLabeledPrediction**,
 
 {% highlight python %}
 def getLabeledPrediction(weights, observation):
-    """Calculates predictions and returns a (label, prediction) tuple.
-    """
+    return (observation.label, weights.dot(observation.features))
 {% endhighlight %}
 
 {% highlight python %}
 def squaredError(label, prediction):
-    """Calculates the the squared error for a single prediction.
-    """
+    return (label - prediction) ** 2
 {% endhighlight %}
 
 {% highlight python %}
 def calcRMSE(labelsAndPreds):
-    """Calculates the root mean squared error for an `RDD` of (label, prediction) tuples.
-    """
+    sumSquaredError = labelsAndPreds.map(lambda (label, prediction): squaredError(label, prediction)).sum()
+    nCount = labelsAndPreds.count()
+    return math.sqrt(sumSquaredError / nCount)
 {% endhighlight %}
 
 With these two functions, calculating the training, validation, and test error of the baseline model became easy
 
 {% highlight python %}
-labelsAndPredsTrain = parsedTrainData.<FILL IN>
-rmseTrainBase = <FILL IN>
+labelsAndPredsTrain = parsedTrainData.map(lambda lp: (lp.label, averageTrainYear))
+rmseTrainBase = calcRMSE(labelsAndPredsTrain)
 
-labelsAndPredsVal = parsedValData.<FILL IN>
-rmseValBase = <FILL IN>
+labelsAndPredsVal = parsedValData.map(lambda lp: (lp.label, averageTrainYear))
+rmseValBase = calcRMSE(labelsAndPredsVal)
 
-labelsAndPredsTest = parsedTestData.<FILL IN>
-rmseTestBase = <FILL IN>
+labelsAndPredsTest = parsedTestData.map(lambda lp: (lp.label, averageTrainYear))
+rmseTestBase = calcRMSE(labelsAndPredsTest)
 {% endhighlight %}
 
 #### Part 3: Train (via gradient descent) and evaluate a linear regression model 
@@ -128,16 +126,14 @@ The third step is to code up gradient descent for linear regression. Again, code
 
 {% highlight python %}
 def gradientSummand(weights, lp):
-    """Calculates the gradient summand for a given weight and `LabeledPoint`.
-    """
+    summand = (weights.dot(lp.features) - lp.label) * lp.features
+    return summand
 {% endhighlight %}
 
 Then we have the actual gradient descent algorithm
 
 {% highlight python %}
 def linregGradientDescent(trainData, numIters):
-    """Calculates the weights and error for a linear regression model trained with gradient descent.
-    """
     # The length of the training data
     n = trainData.count()
     # The number of features in the training data
@@ -150,16 +146,16 @@ def linregGradientDescent(trainData, numIters):
         # Use getLabeledPrediction from (3b) with trainData to obtain an RDD of (label, prediction)
         # tuples.  Note that the weights all equal 0 for the first iteration, so the predictions will
         # have large errors to start.
-        labelsAndPredsTrain = trainData.<FILL IN>
+        labelsAndPredsTrain = trainData.map(lambda lp: getLabeledPrediction(w, lp))
         errorTrain[i] = calcRMSE(labelsAndPredsTrain)
 
         # Calculate the `gradient`.  Make use of the `gradientSummand` function you wrote in (3a).
         # Note that `gradient` sould be a `DenseVector` of length `d`.
-        gradient = <FILL IN> using gradientSummand
+        gradient = trainData.map(lambda lp: gradientSummand(w, lp)).reduce(lambda x,y : x + y)
 
         # Update the weights
         alpha_i = alpha / (n * np.sqrt(i+1))
-        w -= <FILL IN>
+        w -= alpha_i * gradient
     return w, errorTrain
 {% endhighlight %}
 
@@ -167,8 +163,8 @@ With this gradient descient algorithm implemented, we can now calculate the lear
 
 {% highlight python %}
 numIters = 50
-weightsLR0, errorTrainLR0 = linregGradientDescent(<FILL IN>)
-labelsAndPreds = parsedValData.<FILL IN>
+weightsLR0, errorTrainLR0 = linregGradientDescent(parsedTrainData, numIters)
+labelsAndPreds = parsedValData.map(lambda lp: getLabeledPrediction(weightsLR0, lp))
 rmseValLR0 = calcRMSE(labelsAndPreds)
 {% endhighlight %}
 
@@ -186,15 +182,23 @@ regType = 'l2'  # regType
 useIntercept = True  # intercept
 
 # build model
-firstModel = LinearRegressionWithSGD.<FILL IN>
+firstModel = LinearRegressionWithSGD.train(
+                                     data = parsedTrainData, 
+                                     iterations = numIters, 
+                                     step = alpha, 
+                                     miniBatchFraction = miniBatchFrac, 
+                                     initialWeights = None, 
+                                     regParam = reg, 
+                                     regType = regType, 
+                                     intercept = useIntercept)
 
 # weightsLR1 stores the model weights; interceptLR1 stores the model intercept
-weightsLR1 = <FILL IN>
-interceptLR1 = <FILL IN>
+weightsLR1 = firstModel.weights
+interceptLR1 = firstModel.intercept
 print weightsLR1, interceptLR1
 
 samplePoint = parsedTrainData.take(1)[0]
-samplePrediction = <FILL IN>
+samplePrediction = firstModel.predict(samplePoint.features)
 print samplePrediction
 {% endhighlight %}
 
@@ -208,7 +212,7 @@ bestModel = firstModel
 numIters = 500
 alpha = 1.0
 miniBatchFrac = 1.0
-for reg in <FILL IN>:
+for reg in [1e-10, 1e-5, 1]:
     model = LinearRegressionWithSGD.train(parsedTrainData, numIters, alpha,
                                           miniBatchFrac, regParam=reg,
                                           regType='l2', intercept=True)
@@ -229,8 +233,8 @@ Another example of tuning hyper-parameter, alpha and numberIter at the same time
 reg = bestRegParam
 modelRMSEs = []
 
-for alpha in <FILL IN>:
-    for numIters in <FILL IN>:
+for alpha in [1e-5, 10]:
+    for numIters in [500, 5]:
         model = LinearRegressionWithSGD.train(parsedTrainData, numIters, alpha,
                                               miniBatchFrac, regParam=reg,
                                               regType='l2', intercept=True)
@@ -253,9 +257,9 @@ Then we build a new dataset with the set of expanded features:
 
 {% highlight python %}
 # Transform the existing train, validation, and test sets to include two-way interactions.
-trainDataInteract = <FILL IN>
-valDataInteract = <FILL IN>
-testDataInteract = <FILL IN>
+trainDataInteract = parsedTrainData.map(lambda lp: twoWayInteractions(lp))
+valDataInteract = parsedValData.map(lambda lp: twoWayInteractions(lp))
+testDataInteract = parsedTestData.map(lambda lp: twoWayInteractions(lp))
 {% endhighlight %}
 
 Training and Testing are exactly the same as above, so I will not repeat myself.
