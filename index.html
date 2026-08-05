@@ -4,6 +4,7 @@ layout: default
 
 <div class="home">
 
+  {% if site.posts.size > 0 %}
   <h1 class="page-heading">Posts</h1>
 
   <ul class="post-list">
@@ -18,7 +19,9 @@ layout: default
       </li>
     {% endfor %}
   </ul>
-  
+  {% endif %}
+
+  {% if site.data.settings.presentations.size > 0 %}
   <h1 class="page-heading">Presentations</h1>
 
   <ul class="post-list">
@@ -31,4 +34,5 @@ layout: default
       </li>
       {% endfor %}
   </ul>
+  {% endif %}
 </div>
