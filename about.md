@@ -4,12 +4,6 @@ title: About
 permalink: /about/
 ---
 
-<p align="center">
-  <img src="/images/rchang_avatar_small.png">
-</p>
+I am Robert and this is my blog. I am a Software Engineer at Airbnb, where I scaled Minerva, Airbnb's semantic layer to the entire company. Before that I was at Twitter, working as a data scientist where I worked on Growth and the experimentation platform. I live in San Francisco. In my free time I enjoy running and reading.
 
-American mind, Taiwanese heart, World view. I am currently a Data Scientist at [Twitter](http://twitter.com), working on the experimentation team. Before working on experimentation, I have been working as a product data scientist on the Twitter Growth team.
-
-I did my Undergraduate Studies at UC Berkeley, and a MS degree in Statistics from Stanford. I have a broad interest in Statistics, Operations Research, Economics, Machine Learning, and Computer Science.
-
-If you like my website, follow me on Twitter at [@_rchang](https://twitter.com/_rchang).
+Find me on [X](https://twitter.com/{{ site.twitter_username }}), [Github](https://github.com/{{ site.github_username }}), and [LinkedIn](https://www.linkedin.com/in/{{ site.linkedin_username }}), or get in touch at robert dot ih dot chang at gmail dot com.
