@@ -14,10 +14,14 @@
       </a>
 
       <div class="trigger">
-        {% for page in site.pages %}
-          {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-          {% endif %}
+        {% comment %}
+          Tabs are ordered by the `nav_order` front matter, left to right. A page
+          without one stays out of the nav. `nav_title` overrides the label, so a
+          page can sit in the nav under a name other than its <title>.
+        {% endcomment %}
+        {% assign nav_pages = site.pages | where_exp: "p", "p.nav_order" | sort: "nav_order" %}
+        {% for page in nav_pages %}
+          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.nav_title | default: page.title }}</a>
         {% endfor %}
       </div>
     </nav>

@@ -170,8 +170,27 @@
     padding: $spacing-unit 0;
 }
 
+// A small label above a list, not a page title — `index.html` uses it for the
+// dormant "Presentations" section.
 .page-heading {
     font-size: 20px;
+}
+
+// The title at the top of a page: the home page, /bookshelf/, /about/ and each
+// post. These drifted apart as each was built — 20px on the home page, 42px for
+// posts, and /about/ borrowing the post title — so they share one rule now.
+//
+// Sized to sit between the 26px site title in the header and the headings it
+// leads — `.shelf-title` at 30px, `.post-link` at 24px. Larger reads as
+// competing with the site title rather than titling the page.
+.page-title {
+    font-size: 34px;
+    letter-spacing: -1px;
+    line-height: 1.15;
+
+    @include media-query($on-laptop) {
+        font-size: 32px;
+    }
 }
 
 .post-list {
@@ -204,16 +223,6 @@
  */
 .post-header {
     margin-bottom: $spacing-unit;
-}
-
-.post-title {
-    font-size: 42px;
-    letter-spacing: -1px;
-    line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
 }
 
 .post-content {

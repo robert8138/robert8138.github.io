@@ -22,42 +22,9 @@
 #-------------------------------
 
 intro: >
-  Books I keep coming back to. Some taught me a craft, some rearranged how I
-  think, and a few became my operating system.
+  Books I keep coming back to. Some taught me a craft, some rearranged how I think, and a few became my operating system.
 
 shelves:
-  - title: "Career"
-    subtitle: "For the long arc of a working life"
-    books:
-      - title: "Designing Your Work Life"
-        author: "Bill Burnett"
-        isbn: "9780525655244"
-        cover_id: "9297046"
-      - title: "The Minimalist Entrepreneur"
-        author: "Sahil Lavingia"
-        isbn: "9780349431406"
-        cover_id: "10846857"
-      - title: "Making Numbers Count"
-        author: "Chip Heath"
-        isbn: "9781473585324"
-        cover_id: "12420461"
-      - title: "Never Split the Difference"
-        author: "Chris Voss"
-        isbn: "9780062872302"
-        cover_id: "8365942"
-      - title: "Secrets of Sand Hill Road"
-        author: "Scott Kupor"
-        isbn: "9780753553961"
-        cover_id: "14669093"
-      - title: "Skin in the Game"
-        author: "Nassim Nicholas Taleb"
-        isbn: "9780241247488"
-        cover_id: "10856868"
-      - title: "Range"
-        author: "David Epstein"
-        isbn: "9780735214507"
-        cover_id: "10101241"
-
   - title: "Intellectual"
     subtitle: "For sharpening how you think and work"
     books:
@@ -81,6 +48,14 @@ shelves:
         author: "James Clear"
         isbn: "9780735211308"
         cover_id: "12539702"
+      - title: "Range"
+        author: "David Epstein"
+        isbn: "9780735214507"
+        cover_id: "10101241"
+      - title: "Skin in the Game"
+        author: "Nassim Nicholas Taleb"
+        isbn: "9780241247488"
+        cover_id: "10856868"        
 
   - title: "Worldly Wisdom"
     subtitle: "For how the world actually works"
@@ -89,7 +64,7 @@ shelves:
         author: "Eric Jorgenson"
         isbn: "9781544514208"
         cover_id: "10449931"
-      - title: "The undoing project"
+      - title: "The Undoing Project"
         author: "Michael Lewis"
         isbn: "9780141983042"
         cover_id: "9595637"
@@ -102,6 +77,18 @@ shelves:
         isbn: "9780007547999"
         cover_id: "8042539"
 
+  - title: "Career"
+    subtitle: "For the long arc of a working life"
+    books:
+      - title: "Designing Your Work Life"
+        author: "Bill Burnett"
+        isbn: "9780525655244"
+        cover_id: "9297046"
+      - title: "The Minimalist Entrepreneur"
+        author: "Sahil Lavingia"
+        isbn: "9780349431406"
+        cover_id: "10846857"
+
   - title: "Finance"
     subtitle: "For money as a tool, not a scoreboard"
     books:
@@ -113,7 +100,7 @@ shelves:
         author: "Robert G. Hagstrom"
         isbn: "9780471707424"
         cover_id: "9700984"
-      - title: "The most important thing illuminated"
+      - title: "The Most Important Thing Illuminated"
         author: "Howard Marks"
         isbn: "9780231530798"
         cover_id: "9145348"
@@ -121,10 +108,18 @@ shelves:
         author: "Morgan Housel"
         isbn: "9780857199096"
         cover_id: "10389354"
-      - title: "The little book that builds wealth"
+      - title: "The Little Book That Builds Wealth"
         author: "Pat Dorsey"
         isbn: "9780470468388"
         cover_id: "7915755"
+
+  - title: "Physical Health"
+    subtitle: "For the body that carries all of it"
+    books:
+      - title: "Why We Sleep"
+        author: "Matthew P. Walker"
+        isbn: "9780141983769"
+        cover_id: "8814155"
 
   - title: "Mental Health"
     subtitle: "For the inner weather"
@@ -133,7 +128,7 @@ shelves:
         author: "Oliver Burkeman"
         isbn: "9780374612009"
         cover_id: "15091836"
-      - title: "Why Buddhism is True"
+      - title: "Why Buddhism Is True"
         author: "Robert Wright"
         isbn: "9781439195475"
         cover_id: "10286374"
@@ -149,26 +144,30 @@ shelves:
         author: "David L. Bradford"
         isbn: "9780241986875"
         cover_id: "10635162"
-      - title: "The curmudgeon's guide to getting ahead"
+      - title: "The Curmudgeon's Guide to Getting Ahead"
         author: "Charles A. Murray"
         isbn: "9780804141444"
         cover_id: "9582182"
 
-  - title: "Physical Health"
-    subtitle: "For the body that carries all of it"
-    books:
-      - title: "Why We Sleep"
-        author: "Matthew P. Walker"
-        isbn: "9780141983769"
-        cover_id: "8814155"
-
-  - title: "Biography"
+  - title: "Miscellaneous"
     subtitle: "For learning from how other people built"
     books:
       - title: "Creativity, Inc."
         author: "Ed Catmull"
         isbn: "9780593070109"
         cover_id: "13124793"
+      - title: "Making Numbers Count"
+        author: "Chip Heath"
+        isbn: "9781473585324"
+        cover_id: "12420461"        
+      - title: "Never Split the Difference"
+        author: "Chris Voss"
+        isbn: "9780062872302"
+        cover_id: "8365942"
+      - title: "Secrets of Sand Hill Road"
+        author: "Scott Kupor"
+        isbn: "9780753553961"
+        cover_id: "14669093"        
 
 # Not shelved yet — these have no Tag in Notion, so there is no shelf to put
 # them on. Tag them there and move them up.
