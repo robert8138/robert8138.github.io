@@ -1,0 +1,42 @@
+{% comment %}
+  A book cover from Open Library, with a typeset fallback.
+
+  Two ways to point at a cover, because ISBN does two different jobs:
+
+    cover_id  an Open Library *cover* ID (/b/id/). This is the cover OL
+              itself picked for the work, so it is almost always the
+              edition a reader would recognise. Preferred.
+    isbn      the book's identity, and the join key to _books/. Works as
+              a cover source too (/b/isbn/), but a given ISBN often has no
+              scan, or has a foreign-language or audiobook jacket.
+
+  Resolving a title to both is what tools/resolve_isbn.py does.
+
+  `?default=false` makes the API return 404 rather than a blank pixel when
+  it has nothing, which fires the `onerror` below and reveals the fallback.
+
+  Params: isbn, title, author, cover_id (optional)
+{% endcomment %}
+
+{%- capture label %}{{ include.title }} — {{ include.author }}{% endcapture -%}
+
+{%- if include.cover_id -%}
+  {%- capture cover_src -%}
+    https://covers.openlibrary.org/b/id/{{ include.cover_id }}-L.jpg?default=false
+  {%- endcapture -%}
+{%- else -%}
+  {%- capture cover_src -%}
+    https://covers.openlibrary.org/b/isbn/{{ include.isbn }}-L.jpg?default=false
+  {%- endcapture -%}
+{%- endif -%}
+
+<img class="book-cover"
+     loading="lazy"
+     src="{{ cover_src | strip }}"
+     alt="{{ label }}"
+     title="{{ label }}"
+     onerror="this.closest('.book, .book-page-cover').classList.add('book--nocover')">
+<span class="book-fallback" title="{{ label }}">
+  <span class="book-fallback-title">{{ include.title }}</span>
+  <span class="book-fallback-author">{{ include.author }}</span>
+</span>

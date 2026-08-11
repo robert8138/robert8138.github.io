@@ -1,0 +1,430 @@
+/**
+ * Bookshelf
+ *
+ * Rows of book covers resting on a wooden plank. Headings stay inside the
+ * usual `.wrapper` content column; the shelves themselves span the full
+ * viewport, which is why /bookshelf/ uses the `bookshelf` layout rather than
+ * `default` (that layout omits the `.wrapper` around page content).
+ */
+
+$shelf-wood-light:  #f1dcbb;
+$shelf-wood:        #e3c79f;
+$shelf-wood-dark:   #c3a377;
+
+
+.page-content--full {
+    // Covers lift on hover and the plank has a soft drop shadow; without this
+    // the shadows can nudge a horizontal scrollbar onto the page.
+    overflow-x: hidden;
+}
+
+
+/**
+ * Page header
+ */
+.bookshelf-header {
+    margin-bottom: $spacing-unit * 1.5;
+}
+
+.bookshelf-heading {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: $spacing-unit / 2;
+}
+
+// Size and leading are inherited from `body` so this stays in step with post
+// and about prose, which pick up the same base values through `.post-content`.
+.bookshelf-intro {
+    color: $grey-color-dark;
+    max-width: 34em;
+}
+
+
+/**
+ * A single shelf
+ */
+.bookshelf {
+    // Cover height drives everything else: gaps, the fallback spine width and
+    // the plank. Override it in one place to resize a whole shelf.
+    --book-height: 260px;
+
+    @include media-query($on-laptop) {
+        --book-height: 210px;
+    }
+
+    @include media-query($on-palm) {
+        --book-height: 155px;
+    }
+}
+
+.shelf {
+    margin-bottom: $spacing-unit * 2.5;
+
+    &:last-child {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.shelf-title {
+    font-size: 30px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.shelf-subtitle {
+    font-size: 17px;
+    color: $grey-color;
+    margin-bottom: 0;
+}
+
+
+/**
+ * The stage scrolls sideways when a shelf holds more books than fit. The
+ * plank lives inside the scrolling area so it always runs the full length of
+ * the row, and `min-width: 100%` keeps it spanning the viewport when it
+ * doesn't.
+ */
+.shelf-stage {
+    margin-top: $spacing-unit;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.shelf-inner {
+    display: inline-block;
+    min-width: 100%;
+}
+
+.shelf-books {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 34px;
+
+    list-style: none;
+    margin: 0;
+
+    // Top padding leaves room for the hover lift and the cover shadows. The
+    // left padding lines the first cover up with the left edge of `.wrapper`
+    // above it, so headings and books share one margin. `.wrapper` is
+    // ($content-width - 2 * $spacing-unit) wide plus $spacing-unit of padding
+    // and centred, which puts its text edge at 50vw - 370px.
+    padding: 20px $spacing-unit 0
+             calc(50vw - #{$content-width / 2 - $spacing-unit});
+
+    // Below $on-laptop `.wrapper` spans the viewport with a half-unit gutter.
+    @include media-query($on-laptop) {
+        padding-left: $spacing-unit / 2;
+    }
+
+    @include media-query($on-palm) {
+        gap: 20px;
+    }
+}
+
+
+/**
+ * A book
+ */
+.book {
+    flex: 0 0 auto;
+    margin: 0;
+    transition: transform 0.25s ease;
+}
+
+// Only books that go somewhere lift off the shelf, so the motion stays an
+// honest affordance rather than decoration.
+.book--clickable:hover {
+    transform: translateY(-10px);
+}
+
+.book-link {
+    display: block;
+    position: relative;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+/**
+ * Books with a summary in _books/ get a label on hover. Covers without one
+ * are silent, which is what distinguishes "there is writing behind this" from
+ * "this is just a book I read".
+ */
+.book-note {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px 8px 10px;
+
+    // Near-opaque behind the label itself: covers print their own text down
+    // there, and a softer scrim lets it show through and muddle the word.
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.97) 0%,
+        rgba(0, 0, 0, 0.97) 40%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    border-radius: 0 0 2px 2px;
+
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-align: center;
+
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+
+.book--annotated:hover .book-note {
+    opacity: 1;
+}
+
+// Touch devices never hover, so the label would otherwise never appear and
+// nothing would mark a cover as tappable. Show it permanently there.
+@media (hover: none) {
+    .book--annotated .book-note {
+        opacity: 1;
+    }
+}
+
+.book-cover,
+.book-fallback {
+    display: block;
+    height: var(--book-height);
+    width: auto;
+    border-radius: 2px;
+    // The hairline ring keeps covers with white edges from dissolving into
+    // the page background.
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.09),
+        0 10px 20px -8px rgba(0, 0, 0, 0.40),
+        0 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+// The fallback only appears when Open Library has no cover for the ISBN.
+// `?default=false` makes the API 404 rather than serve a blank pixel, which
+// is what fires the img `onerror` that sets this class.
+.book-fallback {
+    display: none;
+}
+
+.book--nocover {
+    .book-cover {
+        display: none;
+    }
+
+    .book-fallback {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+
+        // Roughly the proportions of a trade paperback.
+        width: calc(var(--book-height) / 1.55);
+        padding: 14px 12px;
+
+        background: linear-gradient(155deg, #4c5461 0%, #2c323c 100%);
+        color: #fff;
+        text-align: center;
+    }
+}
+
+.book-fallback-title {
+    font-size: 13px;
+    line-height: 1.35;
+    margin-bottom: 6px;
+}
+
+.book-fallback-author {
+    font-size: 11px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+/**
+ * The plank
+ */
+.shelf-plank {
+    height: 14px;
+    margin: 0 12px;
+    border-radius: 7px;
+    background: linear-gradient(
+        180deg,
+        $shelf-wood-light 0%,
+        $shelf-wood 45%,
+        $shelf-wood-dark 100%
+    );
+    box-shadow: 0 7px 14px -5px rgba(0, 0, 0, 0.30);
+
+    @include media-query($on-palm) {
+        height: 10px;
+        border-radius: 5px;
+    }
+}
+
+
+/**
+ * An individual book page (/books/:name/)
+ *
+ * Uses the `default` layout, so everything here sits inside `.wrapper`.
+ */
+.book-page-back {
+    font-size: $small-font-size;
+    color: $grey-color;
+    margin-bottom: $spacing-unit;
+}
+
+.book-page-header {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-unit;
+    margin-bottom: $spacing-unit * 1.5;
+    padding-bottom: $spacing-unit;
+    border-bottom: 1px solid $grey-color-light;
+
+    // Stack the cover above the metadata once they stop fitting side by side.
+    @include media-query($on-palm) {
+        display: block;
+    }
+}
+
+.book-page-cover {
+    --book-height: 240px;
+    flex: 0 0 auto;
+
+    @include media-query($on-palm) {
+        margin-bottom: $spacing-unit / 2;
+    }
+}
+
+.book-page-meta {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.book-page-title {
+    font-size: 32px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.book-page-author {
+    font-size: 18px;
+    color: $grey-color;
+    margin-bottom: $spacing-unit / 2;
+}
+
+.book-page-oneliner {
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.5;
+    color: $grey-color-dark;
+    border-left: 3px solid $shelf-wood;
+    padding-left: 14px;
+    margin-bottom: $spacing-unit / 2;
+}
+
+.book-page-facts {
+    font-size: $small-font-size;
+    margin-bottom: $spacing-unit / 2;
+
+    dt {
+        float: left;
+        clear: left;
+        width: 60px;
+        color: $grey-color;
+    }
+
+    dd {
+        margin-left: 60px;
+        margin-bottom: 2px;
+    }
+}
+
+.book-page-link {
+    font-size: $small-font-size;
+    margin-bottom: 0;
+}
+
+// Synced notes nest three levels deep (part -> rule -> strategy), and the
+// site's base styles give h2-h4 nearly the same size, so the structure has to
+// be re-established here or the document reads as one flat wall.
+.book-page-body {
+    h2 {
+        font-size: 27px;
+        letter-spacing: -0.4px;
+        margin-top: $spacing-unit * 1.5;
+        padding-bottom: 6px;
+        border-bottom: 1px solid $grey-color-light;
+    }
+
+    h3 {
+        font-size: 20px;
+        margin-top: $spacing-unit;
+    }
+
+    h4 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: $spacing-unit / 1.5;
+    }
+
+    // Nested strategy lists get long; loosen them up a little.
+    li > ul {
+        margin-top: 4px;
+    }
+}
+
+// Figures pulled out of Notion notes. They arrive at whatever size the
+// original screenshot was, so cap them and give them room to breathe.
+.book-page-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: $spacing-unit / 1.5 auto;
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+}
+
+/**
+ * Tables
+ *
+ * Notion tables arrive as markdown pipe tables. The site has no table styles
+ * at all, so without these they render as unreadable runs of text.
+ */
+.book-page-body {
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: $spacing-unit / 2;
+        font-size: $small-font-size;
+
+        // Kramdown emits a bare <table> with no wrapper to scroll, so the
+        // table itself becomes the scroll container. The account-comparison
+        // table in "The Simple Path to Wealth" is five columns wide and would
+        // otherwise push the whole page sideways on a phone.
+        display: block;
+        overflow-x: auto;
+    }
+
+    th,
+    td {
+        border: 1px solid $grey-color-light;
+        padding: 7px 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        background-color: #f6f6f6;
+        font-weight: 600;
+    }
+}

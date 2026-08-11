@@ -10,3 +10,11 @@ linkedin_username: robert-ih-chang
 
 # Build settings
 markdown: kramdown
+
+# Book summaries. One file per book in _books/, joined to the shelves in
+# _data/bookshelf.yml on the `isbn` front matter. A cover on /bookshelf/
+# only becomes a link once a matching file exists here.
+collections:
+  books:
+    output: true
+    permalink: /books/:name/

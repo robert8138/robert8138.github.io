@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+{% comment %}
+  Which shelf holds this book? Looked up from _data/bookshelf.yml rather than
+  duplicated in front matter, so the shelves stay the one place arrangement
+  lives. The data set is small enough that the nested loop costs nothing.
+{% endcomment %}
+{% assign shelf_name = "" %}
+{% for shelf in site.data.bookshelf.shelves %}
+  {% for entry in shelf.books %}
+    {% if entry.isbn == page.isbn %}
+      {% assign shelf_name = shelf.title %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+<article class="book-page">
+
+  <p class="book-page-back">
+    <a href="{{ "/bookshelf/" | prepend: site.baseurl }}">&larr; Bookshelf</a>
+  </p>
+
+  <header class="book-page-header">
+
+    <div class="book-page-cover">
+      {% include book-cover.html isbn=page.isbn title=page.title author=page.author cover_id=page.cover_id %}
+    </div>
+
+    <div class="book-page-meta">
+      <h1 class="book-page-title">{{ page.title }}</h1>
+      <p class="book-page-author">{{ page.author }}</p>
+
+      {% if page.one_liner %}
+      <p class="book-page-oneliner">{{ page.one_liner }}</p>
+      {% endif %}
+
+      <dl class="book-page-facts">
+        {% if shelf_name != "" %}
+        <dt>Shelf</dt>
+        <dd><a href="{{ "/bookshelf/" | prepend: site.baseurl }}">{{ shelf_name }}</a></dd>
+        {% endif %}
+        {% if page.read %}
+        <dt>Read</dt>
+        <dd>{{ page.read }}</dd>
+        {% endif %}
+      </dl>
+
+      {% if page.link %}
+      <p class="book-page-link">
+        <a href="{{ page.link }}" target="_blank" rel="noopener">Find this book &rarr;</a>
+      </p>
+      {% endif %}
+    </div>
+
+  </header>
+
+  <div class="book-page-body post-content">
+    {{ content }}
+  </div>
+
+</article>
