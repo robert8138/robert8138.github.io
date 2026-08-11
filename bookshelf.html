@@ -1,0 +1,80 @@
+---
+layout: bookshelf
+title: Bookshelf
+permalink: /bookshelf/
+excerpt: "Books that shaped how Robert Chang thinks about data, craft, teams, and the long game — grouped into shelves."
+---
+
+{% assign shelf_data = site.data.bookshelf %}
+
+<div class="bookshelf">
+
+  <div class="wrapper">
+    <header class="bookshelf-header">
+      <h1 class="bookshelf-heading">Bookshelf</h1>
+      {% if shelf_data.intro %}
+      <p class="bookshelf-intro">{{ shelf_data.intro }}</p>
+      {% endif %}
+    </header>
+  </div>
+
+  {% for shelf in shelf_data.shelves %}
+  <section class="shelf">
+
+    <div class="wrapper">
+      <h2 class="shelf-title">{{ shelf.title }}</h2>
+      {% if shelf.subtitle %}
+      <p class="shelf-subtitle">{{ shelf.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="shelf-stage">
+      <div class="shelf-inner">
+
+        <ul class="shelf-books">
+          {% for book in shelf.books %}
+
+            {% comment %}
+              A cover links to its own page once a file in _books/ carries a
+              matching `isbn`. Until then it falls back to the optional
+              external `link`, and failing that stays a plain cover. Both
+              variables are reassigned on every pass, since Liquid's `assign`
+              leaks across loop iterations.
+            {% endcomment %}
+            {% assign notes = site.books | where: "isbn", book.isbn | first %}
+            {% if notes %}
+              {% assign href = notes.url | prepend: site.baseurl %}
+            {% elsif book.link %}
+              {% assign href = book.link %}
+            {% else %}
+              {% assign href = "" %}
+            {% endif %}
+
+          <li class="book{% if href != "" %} book--clickable{% endif %}{% if notes %} book--annotated{% endif %}">
+            {% if href != "" %}
+            <a class="book-link" href="{{ href }}"{% unless notes %} target="_blank" rel="noopener"{% endunless %}>
+            {% endif %}
+
+              {% include book-cover.html isbn=book.isbn title=book.title author=book.author cover_id=book.cover_id %}
+
+              {% if notes %}
+              <span class="book-note">Notes &rarr;</span>
+              {% endif %}
+
+            {% if href != "" %}
+            </a>
+            {% endif %}
+          </li>
+
+          {% endfor %}
+        </ul>
+
+        <div class="shelf-plank" aria-hidden="true"></div>
+
+      </div>
+    </div>
+
+  </section>
+  {% endfor %}
+
+</div>

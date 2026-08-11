@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  {% include google_analytics.html %}
+  <body>
+
+    {% include header.html %}
+
+    {% comment %}
+      Unlike `default`, this layout does not wrap {{ content }} in `.wrapper`.
+      Shelves need to span the full viewport; the page re-introduces `.wrapper`
+      around the text it wants held to the usual content column.
+    {% endcomment %}
+    <div class="page-content page-content--full">
+      {{ content }}
+    </div>
+
+  </body>
+
+</html>
