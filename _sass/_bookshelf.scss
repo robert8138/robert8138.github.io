@@ -26,18 +26,14 @@ $shelf-wood-dark:   #c3a377;
     margin-bottom: $spacing-unit * 1.5;
 }
 
-.bookshelf-heading {
-    font-size: 42px;
-    letter-spacing: -1px;
-    line-height: 1.15;
-    margin-bottom: $spacing-unit / 2;
-}
-
 // Size and leading are inherited from `body` so this stays in step with post
 // and about prose, which pick up the same base values through `.post-content`.
+// No `max-width` and no `text-wrap` here on purpose: the intro fills the
+// `.wrapper` column and wraps greedily, so it measures the same as the post
+// excerpts on the home page. Capping the measure, or balancing the lines,
+// pulls the text short of the right edge and reads as a gap.
 .bookshelf-intro {
     color: $grey-color-dark;
-    max-width: 34em;
 }
 
 
