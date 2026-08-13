@@ -1,16 +1,25 @@
 ---
 layout: default
+lang: en
+ref: home
 nav_title: Writings
 nav_order: 1
 ---
 
+{% comment %}
+  The English home page. Chinese posts are filtered out here and on /feed.xml so
+  the English side of the site never surfaces them; /zh/ is the mirror of this
+  page. See the `defaults` block in _config.yml.
+{% endcomment %}
+{% assign posts = site.posts | where: "lang", "en" %}
+
 <div class="home">
 
-  {% if site.posts.size > 0 %}
+  {% if posts.size > 0 %}
   <h1 class="page-title">Writings</h1>
 
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 

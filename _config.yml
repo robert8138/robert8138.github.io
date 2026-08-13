@@ -11,6 +11,25 @@ linkedin_username: robert-ih-chang
 # Build settings
 markdown: kramdown
 
+# Translations. English posts live in _posts/, Chinese ones in _posts/zh/.
+# Everything under _posts/zh is stamped `lang: zh` and served from /zh/..., so a
+# translated post sits at the English URL with /zh prepended. Pair a translation
+# to its original with a shared `ref:` in both files' front matter; that is what
+# the hreflang tags in head.html use to find each other. The Chinese side is not
+# linked from anywhere on the site by design.
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      lang: en
+  - scope:
+      path: "_posts/zh"
+      type: "posts"
+    values:
+      lang: zh
+      permalink: /zh/:year/:month/:day/:title.html
+
 # Book summaries. One file per book in _books/, joined to the shelves in
 # _data/bookshelf.yml on the `isbn` front matter. A cover on /bookshelf/
 # only becomes a link once a matching file exists here.

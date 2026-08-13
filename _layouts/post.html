@@ -5,7 +5,8 @@ layout: default
 
   <header class="post-header">
     <h1 class="page-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    {% assign lang = page.lang | default: "en" %}
+    <p class="post-meta">{{ page.date | date: site.data.i18n[lang].date_format }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
   </header>
 
   <article class="post-content">

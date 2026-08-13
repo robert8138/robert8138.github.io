@@ -1,0 +1,15 @@
+# UI strings, keyed by the `lang` of the page being rendered. Templates read
+# these through `site.data.i18n[lang]` rather than hardcoding English, so adding
+# a language means adding a block here plus a nav_title_<lang> on the shared
+# pages. Post and page bodies are translated as whole files, not from this table.
+en:
+  home_url: /
+  writings: Writings
+  presentations: Presentations
+  date_format: "%b %-d, %Y"
+
+zh:
+  home_url: /zh/
+  writings: 文章
+  presentations: 演講
+  date_format: "%Y年%-m月%-d日"

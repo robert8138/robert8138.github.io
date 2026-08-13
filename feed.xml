@@ -11,7 +11,13 @@ layout: null
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    {% comment %}
+      English posts only. Pushing translations into the one public feed would put
+      them in front of subscribers who did not ask for them, and would undo the
+      fact that /zh/ is unlinked.
+    {% endcomment %}
+    {% assign feed_posts = site.posts | where: "lang", "en" %}
+    {% for post in feed_posts limit:10 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <description>{{ post.content | xml_escape }}</description>

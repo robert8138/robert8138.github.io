@@ -9,4 +9,22 @@
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+
+  {% comment %}
+    Translations advertise each other to search engines only. Posts are paired by
+    a shared `ref:` in their front matter, and nothing renders in the body, so a
+    reader reaches the other language by knowing the URL (prepend /zh) or by
+    searching in that language. Emitting hreflang for a page with no counterpart
+    would be a lie, hence the size check.
+  {% endcomment %}
+  {% if page.ref %}
+    {% assign all_docs = site.posts | concat: site.pages %}
+    {% assign translations = all_docs | where: "ref", page.ref %}
+    {% if translations.size > 1 %}
+      {% for t in translations %}
+      <link rel="alternate" hreflang="{% if t.lang == 'zh' %}zh-Hant{% else %}{{ t.lang | default: 'en' }}{% endif %}" href="{{ t.url | prepend: site.baseurl | prepend: site.url }}" />
+      {% endfor %}
+      <link rel="alternate" hreflang="x-default" href="{{ translations | where: "lang", "en" | map: "url" | first | prepend: site.baseurl | prepend: site.url }}" />
+    {% endif %}
+  {% endif %}
 </head>

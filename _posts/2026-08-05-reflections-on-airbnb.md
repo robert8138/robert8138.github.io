@@ -3,6 +3,7 @@ layout: post
 title:  "Reflections on Airbnb"
 date:   2026-08-05 09:00:00
 comments: True
+ref: reflections-on-airbnb
 excerpt: "I left Airbnb a few weeks ago, a decade after joining in early 2016. This post is part about what I think makes Airbnb unique, and part a recollection of lessons learned over the years."
 ---
 
