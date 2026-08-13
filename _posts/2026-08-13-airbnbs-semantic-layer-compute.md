@@ -14,19 +14,19 @@ This is a follow-up to [Airbnb's Semantic Layer: Developer Experience](https://r
 
 Once semantics are defined in the semantic layer, we want to materialize those definitions so the query layer can read from them. Thousands of sources and definitions change constantly, and with 100+ PRs updating these definitions every week, we need a framework that can manage those changes at scale.
 
-To start, we model the entire semantic layer as a graph. Each node is a dataset registered in Minerva, and two nodes connect if one was created downstream of the other. That structure lets us identify which subset of the graph changes whenever a definition gets updated. The compute framework then figures out what changed and backfills the affected datasets automatically.
+To start, we model the entire semantic layer as a **graph**. Each node is a dataset registered in Minerva, and two nodes connect if one was created downstream of the other. That structure lets us identify which subset of the graph changes whenever a definition gets updated. The compute framework then figures out what changed and backfills the affected datasets automatically.
 
-For every source, Minerva continuously reconciles the desired state of a dataset against its actual state. Any gap between the two becomes a unit of backfill work, and the framework dispatches it. As datasets get updated, we track their state. Compute uses these states to trigger downstream processing, and the query layer relies on them to make sure it only queries up-to-date datasets. When a dataset goes stale or breaks, our janitor process handles lifecycle cleanup.
+For every source, Minerva continuously **reconciles** the desired state of a dataset against its actual state. Any gap between the two becomes a unit of backfill work, and the framework dispatches it. As datasets get updated, we track their **state**. Compute uses these states to trigger downstream processing, and the query layer relies on them to make sure it only queries up-to-date datasets. When a dataset goes stale or breaks, our **janitor process** handles lifecycle cleanup.
 
-The sections below cover each of these in more detail. We will use dataset and source interchangeably for the remainder of the post.
+The sections below cover each of these in more detail. We will use *dataset* and *source* interchangeably for the remainder of the post.
 
 ### Detecting Change
 
-Each dataset in the Minerva graph has a data version, an MD5 hash of every field in the YAML file that encodes the dataset's semantics. Each versioned dataset materializes into an Iceberg table in the warehouse. When a producer edits a config, say by adding a dimension filter or changing a column's projection, the data version updates, telling Minerva to recompute the physical data to match the new definition. That covers a single dataset. Things get more interesting when datasets depend on each other.
+Each dataset in the Minerva graph has a **data version**, an MD5 hash of every field in the YAML file that encodes the dataset's semantics. Each versioned dataset materializes into an Iceberg table in the warehouse. When a producer edits a config, say by adding a dimension filter or changing a column's projection, the data version updates, telling Minerva to recompute the physical data to match the new definition. That covers a single dataset. Things get more interesting when datasets depend on each other.
 
-Some datasets in Minerva are derived from others. If a user defines an event source from a fact table and another user defines a dimension source from a dimension table, Minerva can pre-join them into a dataset called a dimension set, or pre-aggregate the events up to a particular grain to create a rollup source. These pre-joined and pre-aggregated datasets depend on the event source, so when that event source changes, they have to be updated accordingly.
+Some datasets in Minerva are derived from others. If a user defines an event source from a fact table and another user defines a dimension source from a dimension table, Minerva can pre-join them into a dataset called a **dimension set**, or pre-aggregate the events up to a particular grain to create a **rollup source**. These pre-joined and pre-aggregated datasets depend on the event source, so when that event source changes, they have to be updated accordingly.
 
-We manage these dependencies through chained data versions. A downstream source's data version includes the upstream source's data version as one of its inputs. In the example above, the event source's data version is folded into the data versions of both the dimension set and the rollup source. When the event source changes, those two downstream versions change with it. A single YAML edit can turn into a wave of updates across the graph.
+We manage these dependencies through **chained data versions**. A downstream source's data version includes the upstream source's data version as one of its inputs. In the example above, the event source's data version is folded into the data versions of both the dimension set and the rollup source. When the event source changes, those two downstream versions change with it. A single YAML edit can turn into a wave of updates across the graph.
 
 This design cascades change well, but its change detection can be overly aggressive. Say we add a new column to the event source. Downstream sources that never reference that column don't need to be recomputed. They get backfilled anyway, because all we know is that the upstream version changed. Workarounds exist, like pinning a source to a fixed data version, though they get complex fast for large-scale changes. This is an area I wish we'd invested in more, since better change detection could meaningfully cut how much Minerva has to backfill.
 
@@ -34,7 +34,7 @@ Some tools have taken this further. SQLMesh has invested heavily in [sophisticat
 
 ### Reconciliation
 
-With change detection covered, we can zoom in on a single dataset and see how the compute framework reconciles changes. Since most datasets at Airbnb are date-partitioned, the reconciliation algorithm depends heavily on partition-level operations.
+With change detection covered, we can zoom in on a single dataset and see how the compute framework reconciles changes. Since most datasets at Airbnb are **date-partitioned**, the reconciliation algorithm depends heavily on partition-level operations.
 
 #### Reconciliation Algorithm
 
