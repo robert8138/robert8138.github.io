@@ -1,0 +1,38 @@
+---
+layout: default
+lang: zh
+ref: home
+title: 文章
+nav_order: 1
+permalink: /zh/
+excerpt: "Robert Chang 的中文文章，關於資料平台、語意層，以及在 Airbnb 與 Twitter 十餘年的工作心得。"
+---
+
+{% comment %}
+  The Chinese home page. It carries nav_order 1 like index.html does, but the
+  `lang` on both means header.html only ever renders one of them, so the two
+  never appear side by side. Nothing on the English side links here: readers
+  arrive by URL or by finding a post through a Chinese-language search.
+{% endcomment %}
+{% assign posts = site.posts | where: "lang", "zh" %}
+{% assign t = site.data.i18n.zh %}
+
+<div class="home">
+
+  {% if posts.size > 0 %}
+  <h1 class="page-title">{{ t.writings }}</h1>
+
+  <ul class="post-list">
+    {% for post in posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: t.date_format }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+        <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

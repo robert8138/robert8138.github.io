@@ -1,6 +1,8 @@
 ---
 layout: page
 title: About
+lang: en
+ref: about
 nav_order: 3
 permalink: /about/
 excerpt: "Robert Chang, a software engineer who scaled Minerva, Airbnb's semantic layer, across the company. Previously at Twitter on Growth and experimentation."

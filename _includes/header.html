@@ -2,7 +2,10 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    {% assign lang = page.lang | default: "en" %}
+    {% assign t = site.data.i18n[lang] %}
+
+    <a class="site-title" href="{{ t.home_url | prepend: site.baseurl }}">{{ site.title }}</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -18,10 +21,18 @@
           Tabs are ordered by the `nav_order` front matter, left to right. A page
           without one stays out of the nav. `nav_title` overrides the label, so a
           page can sit in the nav under a name other than its <title>.
+
+          A page with a `lang` only appears in that language's nav, which is how
+          / and /zh/ can both claim nav_order 1 without colliding. Pages with no
+          `lang` are shared across languages and are labelled by nav_title_<lang>
+          when one exists.
         {% endcomment %}
         {% assign nav_pages = site.pages | where_exp: "p", "p.nav_order" | sort: "nav_order" %}
-        {% for page in nav_pages %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.nav_title | default: page.title }}</a>
+        {% for p in nav_pages %}
+          {% if p.lang and p.lang != lang %}{% continue %}{% endif %}
+          {% assign title_key = "nav_title_" | append: lang %}
+          {% assign localized_title = p[title_key] %}
+          <a class="page-link" href="{{ p.url | prepend: site.baseurl }}">{{ localized_title | default: p.nav_title | default: p.title }}</a>
         {% endfor %}
       </div>
     </nav>

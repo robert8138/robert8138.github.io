@@ -3,6 +3,7 @@ layout: post
 title:  "Airbnb's Semantic Layer: Developer Experience"
 date:   2026-08-10 09:00:00 +0800
 comments: True
+ref: semantic-layer-developer-experience
 excerpt: "Over seven years, Minerva grew into the largest data framework at Airbnb. This first post looks at the developer experience decisions behind it: configuration as code, validation, ownership, and dry runs."
 ---
 

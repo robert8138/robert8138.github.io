@@ -3,6 +3,7 @@ layout: post
 title:  "Airbnb's Semantic Layer: Compute"
 date:   2026-08-13 09:00:00 +0800
 comments: True
+ref: semantic-layer-compute
 excerpt: "Minerva keeps 10,000+ sources up-to-date across 20,000+ Airflow DAGs. This second post is about the compute framework behind that: change detection, reconciliation, state tracking, and lifecycle management."
 ---
 

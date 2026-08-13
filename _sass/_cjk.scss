@@ -1,0 +1,44 @@
+/**
+ * Chinese pages
+ *
+ * Scoped to the `lang` on <html>, so these rules only reach /zh/ and leave the
+ * English side untouched. Helvetica has no CJK coverage, so browsers fall back
+ * per-glyph to whatever the system offers; naming the good system faces keeps
+ * the result from landing on a bitmapped or Simplified-preferring fallback.
+ * Traditional forms come first, then Simplified, then the Japanese faces, which
+ * cover most of the characters if nothing else matched.
+ */
+html[lang^="zh"] {
+
+    body {
+        font-family: -apple-system, "PingFang TC", "Hiragino Sans CNS",
+                     "Microsoft JhengHei", "PingFang SC", "Microsoft YaHei",
+                     "Hiragino Sans", "Noto Sans CJK TC", $base-font-family;
+
+        // CJK glyphs are full-width and dense, so English line-height reads as
+        // cramped. Weight 300 also renders thin and washed out in most CJK
+        // faces, which have no true light cut.
+        line-height: 1.85;
+        font-weight: 400;
+    }
+
+    // Han characters carry no ascenders or descenders, so headings can sit
+    // tighter than their Latin counterparts without touching.
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.4;
+        font-weight: 600;
+    }
+
+    // Chinese prose has no inter-word spaces for the browser to break on, so
+    // long runs need explicit permission to wrap inside a "word".
+    .post-content {
+        word-break: break-word;
+    }
+
+    // Latin technical terms are unavoidable in these posts (Airflow, Iceberg,
+    // MD5). A touch of space keeps them from colliding with adjacent Han
+    // characters, which typography convention sets at about a quarter em.
+    .post-content code {
+        margin: 0 0.15em;
+    }
+}
