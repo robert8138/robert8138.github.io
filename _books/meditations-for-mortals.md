@@ -7,7 +7,6 @@ cover_id: "15091836"
 one_liner: "Imperfectionism — accepting our limitations rather than chasing perfect control."
 read: 2025
 link: https://www.goodreads.com/book/show/205363955-meditations-for-mortals
-notion_url: https://www.notion.so/Meditations-for-Mortals-2b8425fef8e680c484ebc2d5a873034f
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
@@ -18,7 +17,7 @@ notion_url: https://www.notion.so/Meditations-for-Mortals-2b8425fef8e680c484ebc2
 
 The core philosophy is what Burkeman calls **"imperfectionism."** Rather than chasing an ideal of perfect control, productivity, or self-improvement, we learn to accept our limitations and embrace a more grounded, realistic, and fulfilling way of living.
 
-At first I was a little confused by the book's title — *Meditations for Mortals*. The first few chapters felt similar to Burkeman's *Four Thousand Weeks*, and I initially thought it focused more on confronting life's limits than on meditation itself. As the reflections unfold, it becomes clearer why Burkeman frames it as meditations: many themes echo what meditation teaches — accepting reality, letting go of control, staying present, and acting meaningfully despite imperfection.
+The book's title confused me at first. The first few chapters felt similar to Burkeman's *Four Thousand Weeks*, and I thought the book focused more on confronting life's limits than on meditation itself. As the reflections unfold, it becomes clearer why Burkeman frames it as meditations: many themes echo what meditation teaches — accepting reality, letting go of control, staying present, and acting meaningfully despite imperfection.
 
 ## Key Themes
 
@@ -48,7 +47,7 @@ This book tends to resonate strongly with:
 
 - People caught in the cycle of perfectionism, productivity pressure, or chronic overwhelm.
 - Those feeling guilt, burnout, or emptiness despite "doing all the right things."
-- People who want a realistic but enriching philosophy of life that doesn't rely on hack-y "life hacks," but deeper mindset shifts.
+- People who want a realistic but enriching philosophy of life that relies not on hack-y "life hacks" but on deeper mindset shifts.
 
 The result can be liberating — a calmer, more grounded sense of time, purpose, and acceptance; the ability to focus on what truly matters; and the freedom to live meaningfully *in the present*, rather than chasing a perfect future. The book offers a compassionate, thoughtful pushback against hustle culture and unrealistic expectations. It frames imperfection not as a flaw, but as a core feature of human life — and shows how acceptance can bring clarity, peace, and purpose.
 

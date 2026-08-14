@@ -6,18 +6,13 @@ isbn: "9781473585324"
 cover_id: "12420461"
 one_liner: "Our brains are not wired for numbers: math is like a second language. Good translation can help."
 read: 2022
-notion_url: https://www.notion.so/Making-Numbers-Count-42bbf14a099c41f798b3d03dde477584
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
 
-<!-- A bookmark block in the Notion page could not be resolved by the API and is omitted. -->
-
 ## Summary
 
 > Our brains are not wired for numbers: math is like a second language. Good translation can help.
-
-The Heath brothers have resources for their books. I haven't found one for "Making Numbers Count", but that's something to watch out for in the future.
 
 ## Better Understanding
 
@@ -66,9 +61,9 @@ Observe how local health campaigns around the world translated "6 feet" to relay
 - 24 buffalo wings — Buffalo, NY
 - 72 pistachios — New Mexico
 
-Some of these are useful; others are just cute. You've seen a hockey stick or fishing rod before. But if you've ever witnessed 24 buffalo wings or 72 pistachios end-to-end, someone needs more training in table manners.
+Some of these are useful; others are just cute. You've seen a hockey stick or fishing rod before. But if you've ever witnessed 24 buffalo wings or 72 pistachios lined up end-to-end, someone needs more training in table manners.
 
-So to come up with your fathom, brainstorm items of a similar size that your audience would know well. If you get stuck, use the MacGyver principle. In the 1980s television show, MacGyver would use his knowledge of science to create tools that Batman or James Bond would have spent millions on. Except MacGyver built his tools out of recycled fast-food containers from lunch. The MacGyver principle is this: Look around you. See what you can build using found objects in the environment. Consider what's universally known to your people: local references, objects used in your field, items in the news.
+So to come up with your fathom, brainstorm items of a similar size that your audience would know well. If you get stuck, use the MacGyver principle. In the 1980s television show, MacGyver used his knowledge of science to create tools that Batman or James Bond would have spent millions on. Except MacGyver built his tools out of recycled fast-food containers from lunch. The MacGyver principle is this: Look around you. See what you can build using found objects in the environment. Consider what's universally known to your people: local references, objects used in your field, items in the news.
 
 ### Convert Abstract Numbers into Concrete Objects
 
@@ -76,8 +71,8 @@ So to come up with your fathom, brainstorm items of a similar size that your aud
 
 How much water do we have to support life?
 
-- **Translation 1**: 97.5% of water is salinated. Of the 2.5% that is fresh, 99% is in ice caps or frozen tundra. The 0.0025% remaining can be consumed.
-- **Translation 2**: Imagine we have a gallon jug, only 3 ice cubes are fresh, and a few drops are consumable.
+- **Translation 1:** 97.5% of water is salinated. Of the 2.5% that is fresh, 99% is in ice caps or frozen tundra. The 0.0025% remaining can be consumed.
+- **Translation 2:** Imagine we have a gallon jug, only 3 ice cubes are fresh, and a few drops are consumable.
 
 Washing hands statistics:
 
@@ -90,13 +85,13 @@ Washing hands statistics:
 
 Hummingbird:
 
-- **Translation 1:** Hummingbird's metabolism is 46 times faster than human beings.
-- **Translation 2:** This means that if a hummingbird were to be a human, you will be consuming coke every minute for all waking hours.
+- **Translation 1:** A hummingbird's metabolism is 46 times faster than a human's.
+- **Translation 2:** This means that if a hummingbird were a human, you would be drinking a Coke every minute for all your waking hours.
 
 Frogs:
 
-- **Translation 1:** Every frog can jump very far, 3 times the size of their body.
-- **Translation 2:** It's like if a user can jump from the 3 point line and dunk, but from the opponent side of the court. (This is also an `encore` technique.)
+- **Translation 1:** Every frog can jump very far, 3 times the size of its body.
+- **Translation 2:** It's like a player jumping from the 3-point line and dunking, but from the opponent's side of the court. (This is also an `encore` technique.)
 
 ### Try Switching Dimensions
 
@@ -131,7 +126,7 @@ Teaching:
 
 California:
 
-- **Translation 1:** California has annual GDP of $XYZ dollars.
+- **Translation 1:** California has an annual GDP of some very large number of dollars.
 - **Translation 2:** If California were to be a country, it would be the 5th largest country in the world measured by GDP.
 
 ### Make It Personal: "This Is About You"

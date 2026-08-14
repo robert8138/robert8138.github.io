@@ -6,7 +6,6 @@ isbn: "9780061461545"
 cover_id: "20382"
 one_liner: "Choice within constraints, freedom within limits."
 read: 2020
-notion_url: https://www.notion.so/Paradox-of-Choice-20a781fcb9bc491ba83c8561c65e4bc1
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
@@ -15,21 +14,21 @@ notion_url: https://www.notion.so/Paradox-of-Choice-20a781fcb9bc491ba83c8561c65e
 
 > "Choice Within Constraints, Freedom Within Limits" — Barry Schwartz
 
-America values freedom and choice, and in recent year, this emphasis means the number of choices available to us are ever increasing. **The same explosion of choice is true in other aspects of our life — health care, career choices, identity, romantic relationships.** All these questions are consuming questions. Often, our society shifts the decision and responsibility for those who have the expertise and the know-how to us individual. We are bombarded with choice every single day. The deluge of choice, in fact, has a cost. The abundance of choice creates two effects.
+America values freedom and choice, and in recent years, this emphasis means the number of choices available to us is ever increasing. **The same explosion of choice is true in other aspects of our life — health care, career choices, identity, romantic relationships.** All these questions are consuming questions. Often, our society shifts the decision and the responsibility from those who have the expertise and the know-how to us as individuals. We are bombarded with choice every single day. The deluge of choice, in fact, has a cost. The abundance of choice creates two effects.
 
 ![Paradox of Choice — the two effects of abundant choice]({{ "/images/books/paradox-of-choice-1.png" | prepend: site.baseurl }})
 
 ### Choice Paralysis
 
-It produces paralysis rather than liberation — with so many options to choose, people find it hard to choose at all.
+It produces paralysis rather than liberation — with so many options to choose from, people find it hard to choose at all.
 
 ### Less Satisfaction
 
-We ended up less satisfied than when the choices are more limited:
+We end up less satisfied than when the choices are more limited:
 
-- **Regret and anticipated regrets:** the regrets from the "what ifs" from options decrease our satisfaction on the choice that we made. It's even more insidious that we have to deal with anticipated regrets, the only way to deal with anticipated regrets is to not make any decision, even when a decision is good for us.
+- **Regret and anticipated regrets:** the regrets from the "what ifs" of other options decrease our satisfaction with the choice that we made. It's even more insidious that we have to deal with anticipated regrets; the only way to deal with anticipated regrets is to not make any decision, even when a decision is good for us.
 - **Opportunity costs:** subtract the satisfaction we derived from the choice.
-- **Escalation of Expectations:** Adding more options to people's life raise people's expectation, and it makes it harder for us to be satisfied.
+- **Escalation of Expectations:** Adding more options to people's lives raises people's expectations, and it makes it harder for us to be satisfied.
 - **Self-blame:** We blame ourselves for not making the "best" choice.
 
 Talks: [one](https://www.youtube.com/watch?v=VO6XEQIsCoM), [two](https://www.youtube.com/watch?v=yhtmhaboE94).
@@ -38,7 +37,7 @@ Talks: [one](https://www.youtube.com/watch?v=VO6XEQIsCoM), [two](https://www.you
 
 ### 1. Choose When to Choose
 
-According to Schwartz, one way to combat the paradox of choice is to be selective what needs to go through careful decision making process — "Decide which choices in our lives really matter and focus our time and energy there".
+According to Schwartz, one way to combat the paradox of choice is to be selective about what needs to go through a careful decision-making process — "Decide which choices in our lives really matter and focus our time and energy there".
 
 To put this into practice, try the following: (a) Review some recent decisions you've made, both large and small (a clothing purchase, a vacation destination, a job or relationship change); (b) itemize the time, research and anxiety that went into those decisions; (c) reflect on how it felt to do that work; and (d) ask yourself how much your final decision benefited from that work.
 
@@ -46,11 +45,11 @@ To put this into practice, try the following: (a) Review some recent decisions y
 
 ### 2. Be a Chooser, Not a Picker
 
-Avoid being a picker, a relatively passive person to pick a decision. Choosers have time to modify their goals, pickers do not. Choosers can avoid following the herd, pickers do not. Making good choices required time and attention, and they required rules, norms, and routines. As you review the recent choices you recently made, you will realize the true cost of choices. In the end, you should strive to:
+Avoid being a picker, a relatively passive person who simply picks a decision. Choosers have time to modify their goals; pickers do not. Choosers can avoid following the herd; pickers cannot. Making good choices requires time and attention, and it requires rules, norms, and routines. As you review the choices you recently made, you will realize the true cost of choices. In the end, you should strive to:
 
-- Shorten the decision and time it requires to make decisions that you don't really care deeply
+- Shorten the decision and the time it requires to make decisions that you don't really care deeply about
 - Use some of the time you freed up to ask yourself which areas in life really matter to you
-- And if you don't find options that are available meets your need, start to think about how you can create more options for yourself
+- And if you don't find that the available options meet your needs, start to think about how you can create more options for yourself
 
 ### 3. Satisfice More, Maximize Less
 
@@ -68,13 +67,13 @@ The key to experiencing more satisfaction and abundance, according to Schwartz, 
 The more we think about opportunity cost, the less we will feel satisfied with the choice we made. Be aware of the fact that the opportunity cost subtracts the satisfaction we derived from the choice we make. Some strategies to avoid the opportunity cost of opportunity cost:
 
 - Unless you are truly dissatisfied, stick with what you usually buy
-- Don't be tempted by new and shiny new toys
+- Don't be tempted by shiny new toys
 - Don't scratch unless there's an itch
 - Don't worry that you will miss out on all the new opportunities
 
 ### 5. Make Your Decisions Non-Reversible
 
-Almost everyone prefers having options, but the availability of an option that allows us to reverse our decision actually increases the chance that we reverse the decision, and the process is agonizing. For example, by thinking about marriage as non-reversible, we spend more efforts trying to do the best that we can on the life partner that we committed to. Being able to commit to what we decided on rather than constantly second guessing is much better.
+Almost everyone prefers having options, but the availability of an option that allows us to reverse our decision actually increases the chance that we reverse the decision, and the process is agonizing. For example, by thinking about marriage as non-reversible, we spend more effort trying to do the best that we can with the life partner that we committed to. Being able to commit to what we decided on rather than constantly second-guessing is much better.
 
 ### 6. Practice Gratitude
 
@@ -90,11 +89,11 @@ We should make an effort to regret less. Some strategies:
 
 ### 8. Anticipate Adaptation
 
-We adapt to everything, knowing that this is true whether for good things or bad things. When we are experiencing something great, keep in mind that in steady state it will not be as good as it feels now. Be aware of the [hedonic treadmill](https://en.wikipedia.org/wiki/Hedonic_treadmill) & expectation treadmill. Similarly, when we are experiencing disappointment, know that things will trend back to the mean experience, and it will not be as bad as it seems now.
+We adapt to everything, and this is true whether for good things or bad things. When we are experiencing something great, keep in mind that in steady state it will not be as good as it feels now. Be aware of the [hedonic treadmill](https://en.wikipedia.org/wiki/Hedonic_treadmill) & expectation treadmill. Similarly, when we are experiencing disappointment, know that things will trend back to the mean experience, and it will not be as bad as it seems now.
 
 ### 9. Control Expectation
 
-We should avoid setting high expectation, and aim for low expectation. This is hard to do.
+We should avoid setting high expectations, and aim for low expectations. This is hard to do.
 
 ### 10. Curtail Social Comparison
 
@@ -102,6 +101,6 @@ Some degree of social comparison is inevitable, but when we use social compariso
 
 ### 11. Learn to Embrace Constraints
 
-By following rules, we can free ourselves from all kinds of inconsequential decisions. Many of the daily hassles will disappear. There's the famous research from Harvard that studied what makes us happy; the conclusion was "close relations". The interesting thing is, close relations constrain rather than liberate us. When you are constrained, you are not faced by an infinite number of choices, and we are protected from the paradox of choice.
+By following rules, we can free ourselves from all kinds of inconsequential decisions. Many of the daily hassles will disappear. There's the famous research from Harvard that studied what makes us happy; the conclusion was "close relations". The interesting thing is, close relations constrain rather than liberate us. When you are constrained, you are not faced with an infinite number of choices, and you are protected from the paradox of choice.
 
-[Talk](https://www.youtube.com/watch?v=8KkKuTCFvzI)
+Additional talk: [YouTube video](https://www.youtube.com/watch?v=8KkKuTCFvzI).

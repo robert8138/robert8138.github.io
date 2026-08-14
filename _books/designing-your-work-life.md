@@ -7,18 +7,15 @@ cover_id: "9297046"
 one_liner: "Don't resign, redesign."
 read: 2026
 link: https://designingyour.life/books-designing-your-new-work-life/
-notion_url: https://www.notion.so/Designing-Your-Work-Life-32b425fef8e680eab6ecea97f433e0b6
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
-
-<!-- A bookmark block under "Know Your Strengths" could not be resolved by the API and is omitted. -->
 
 ## Frameworks
 
 ### Maker's Mix
 
-This graphic has sliders for three kinds of "maker outputs" — for the market economy, we will adjust **Money** in the mix; for the making-a-difference economy, we adjust **Impact**; and in the creativity economy, we will dial up **Expression**. The goal is to help you understand where you are today, and where you aspire to be tomorrow. You move the sliders intuitively and keep adjusting the mix of money, impact, and expression until it feels right. There are no units—just a range from 0 to 100.
+This graphic has sliders for three kinds of "maker outputs" — for the market economy, we will adjust **Money** in the mix; for the making-a-difference economy, we adjust **Impact**; and in the creativity economy, we will dial up **Expression**. The goal is to help you understand where you are today, and where you aspire to be tomorrow. You move the sliders intuitively and keep adjusting the mix of money, impact, and expression until it feels right. There are no units — just a range from 0 to 100.
 
 ![Designing Your Work Life — figure 1]({{ "/images/books/designing-your-work-life-1.png" | prepend: site.baseurl }})
 
@@ -26,9 +23,8 @@ This graphic has sliders for three kinds of "maker outputs" — for the market e
 
 A **2×2 reflection tool** for understanding where your work creates value and where you personally draw meaning from it.
 
-- **Horizontal Axis**: asks who is affected by your work. Near/Personal impact are impacts that you can directly see. Far/Global impact reaches beyond your direct environment.
-  **Do you feel more energized when impact is visible and close, or when it reaches broadly even if you don't directly see it?**
-- **Vertical Axis:** asks what kind of contribution you are making. Support means you are enabling others to do something, and sustain means directly maintaining or preserving something valuable.
+- **Horizontal Axis**: asks who is affected by your work. Near/Personal impact is impact that you can directly see. Far/Global impact reaches beyond your direct environment. **Do you feel more energized when impact is visible and close, or when it reaches broadly even if you don't directly see it?**
+- **Vertical Axis**: asks what kind of contribution you are making. Support means you are enabling others to do something, and sustain means directly maintaining or preserving something valuable.
 
 ![Designing Your Work Life — figure 2]({{ "/images/books/designing-your-work-life-2.png" | prepend: site.baseurl }})
 

@@ -7,7 +7,6 @@ cover_id: "10286374"
 one_liner: "Natural selection didn't design your mind to see the world clearly; it designed your mind to have perceptions and beliefs that would help take care of your genes."
 read: 2021
 link: https://lifeclub.org/books/why-buddhism-is-true-robert-wright-review-summary
-notion_url: https://www.notion.so/Why-Buddhism-Is-True-c369e7a901c04b668d44081f4cad5ba6
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
@@ -39,7 +38,7 @@ notion_url: https://www.notion.so/Why-Buddhism-Is-True-c369e7a901c04b668d44081f4
 
 ### Effect of Natural Selection on Humans
 
-Natural selection doesn't "want" us to be happy, after all; it just "wants" us to be productive, in its narrow sense of productive. And the way to make us productive is to make the anticipation of pleasure very strong but the pleasure itself not very long-lasting. This is what we often call "the hedonic treadmill". Natural selection didn't design your mind to see the world clearly; it designed your mind to have perceptions and beliefs that would help take care of your genes.
+Natural selection doesn't "want" us to be happy, after all; it just "wants" us to be productive, in its narrow sense of productive. And the way to make us productive is to make the anticipation of pleasure very strong but the pleasure itself not very long-lasting. This is what we often call "the hedonic treadmill." Natural selection didn't design your mind to see the world clearly; it designed your mind to have perceptions and beliefs that would help take care of your genes.
 
 ### Feelings Can Be Misleading
 
@@ -70,7 +69,3 @@ What's fundamental to the Buddha's teachings is the general dynamic of being pow
 If you accept the idea that many of our most troublesome feelings are in one sense or another illusions, then meditation can be seen as, among other things, a process of dispelling illusions. Viewing your feelings mindfully while on a meditation cushion can make you better at viewing them mindfully in everyday life, which means your life will be less governed by misleading or unproductive feelings.
 
 The main point these meditation teachers are making is the same as the upshot of the modular-mind model: the conscious self doesn't create thoughts; it receives them.
-
-### Other Topics
-
-It also talked about "non-self", "emptiness", and "essence", which are all kind of confusing to me to be honest.

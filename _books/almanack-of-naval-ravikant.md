@@ -7,7 +7,6 @@ cover_id: "10449931"
 one_liner: "Desire is a contract you make with yourself to be unhappy until you get what you want."
 read: 2021
 link: https://www.navalmanack.com/
-notion_url: https://www.notion.so/Almanack-of-Naval-Ravikant-A-Guide-to-Wealth-and-Happiness-5e17f6bcb17f4dc6ae17165fdb09d790
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
@@ -20,7 +19,7 @@ notion_url: https://www.notion.so/Almanack-of-Naval-Ravikant-A-Guide-to-Wealth-a
 
 > "I like to think that if I lost all my money and you dropped me on a random street in any English-speaking country, within five or ten years I'd be wealthy again because it's just a skillset I've developed that anyone can develop."
 
-This type of system thinking is quite inspiring. The idea is that you will not get rich by getting lucky, you will have a system in place that allow you to achieve the same goal with repeatable success. I think this is pretty important because it allows you to pass on the learnings and DNAs to your offspring, and human being in general — a noble pursuit.
+This type of systems thinking is quite inspiring. The idea is that you don't get rich by getting lucky; you have a system in place that lets you achieve the same goal with repeatable success. That matters because a system can be passed on — to your children, and to other people in general — which strikes me as a noble pursuit.
 
 - **Productize Yourself**: "Yourself" has uniqueness. "Productize" has leverage. "Yourself" has accountability. "Productize" has specific knowledge. "Yourself" also has specific knowledge in there. So all of these pieces, you can combine them into these two words.
   - If you want to be wealthy, you want to figure out which one of those things you can provide for society that it does not yet know how to get but it will want and providing it is natural to you, within your skill set, and within your capabilities.
@@ -127,11 +126,11 @@ That will give you the time and the energy to pursue your own internal peace and
 
 ### Saving Yourself
 
-> Doctors won't make you healthy.
-> Nutritionists won't make you slim.
-> Teachers won't make you smart.
-> Gurus won't make you calm.
-> Mentors won't make you rich.
+> Doctors won't make you healthy.  
+> Nutritionists won't make you slim.  
+> Teachers won't make you smart.  
+> Gurus won't make you calm.  
+> Mentors won't make you rich.  
 > Trainers won't make you fit.
 >
 > Ultimately, you have to take responsibility. Save yourself.

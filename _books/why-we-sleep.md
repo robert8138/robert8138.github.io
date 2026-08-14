@@ -6,14 +6,13 @@ isbn: "9780141983769"
 cover_id: "8814155"
 one_liner: "Sleep deprivation is a debt that cannot be repaid."
 read: 2020
-notion_url: https://www.notion.so/Why-We-Sleep-1c3aadbb565845ed9fcb15d5adafe852
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
 
 ## Introduction
 
-There's a lot of great content covered about sleep: circadian rhythm, melatonin, chronotype, how sleep deprivation is a debt that cannot be recovered, and what REM and non-REM movements do to our brain and neuroplasticity. Here I want to just summarize what things we can do to improve our sleep. See these [notes](https://fastlifehacks.com/matthew-walker-12-tips-for-good-sleep/) for more details. I found out about this book from [Gates' Notes](https://www.gatesnotes.com/Books/Why-We-Sleep). Also, these [notes](https://www.lesswrong.com/posts/MaH3q45LnhoPLACQL/book-review-why-we-sleep) summarize the book really well.
+There's a lot of great content covered about sleep: circadian rhythm, melatonin, chronotype, how sleep deprivation is a debt that cannot be recovered, and what REM and non-REM sleep do to our brain and neuroplasticity. Here I want to summarize what we can do to improve our sleep. See these [notes](https://fastlifehacks.com/matthew-walker-12-tips-for-good-sleep/) for more details. I found out about this book from [Gates' Notes](https://www.gatesnotes.com/Books/Why-We-Sleep). Also, these [notes](https://www.lesswrong.com/posts/MaH3q45LnhoPLACQL/book-review-why-we-sleep) summarize the book really well.
 
 [Google Talk: a good short summary](https://www.youtube.com/watch?v=c1yGw_hfEfk)
 
@@ -38,7 +37,7 @@ There are two systems controlling sleep and wakefulness. The **circadian system*
 ![Why We Sleep — typical sleeping pattern]({{ "/images/books/why-we-sleep-4.png" | prepend: site.baseurl }})
 
 - Humans seem to be naturally **biphasic**: modern hunter-gatherer tribes sleep for 7-8 hours at night, and then nap for 30-60 minutes in the afternoon. It's biologically natural to be sleepy after lunch. Biphasic sleep significantly decreases mortality from heart disease.
-- Walker hypothesizes that **descending from the trees to sleep on the ground + the invention of fire (which made it safer to sleep on the ground) allowed us to gain more REM sleep** (particularly difficult in trees due to sleep paralysis), and therefore was important in boosting human cognitive development, which creates a virtuous cycle for humans to be dominant.
+- Walker hypothesizes that **descending from the trees to sleep on the ground + the invention of fire (which made it safer to sleep on the ground) allowed us to gain more REM sleep** (particularly difficult in trees due to sleep paralysis), and therefore was important in boosting human cognitive development, which created a virtuous cycle for humans to be dominant.
 - Human sleep consists of cycles lasting about 1.5 hours, each of which contains first a period of NREM (Non-Rapid Eye Movement) sleep, then a period of REM sleep. In brain scans, the former consists of slow, deep brain waves, while the latter shows the same frenetic activity as an awake brain. As the night goes on, cycles feature a higher proportion of REM sleep. This means that if you cut your sleep short by 25%, you're actually missing out on somewhere between 60% and 90% of REM sleep.
 
 ![Why We Sleep — NREM and REM across the night]({{ "/images/books/why-we-sleep-5.png" | prepend: site.baseurl }})
@@ -70,7 +69,7 @@ See this [TED Talk](https://www.ted.com/talks/matt_walker_sleep_is_your_superpow
 
 ### 1. Stick to a sleep schedule
 
-We should aim to go to bed and wake up at the same time each day. People generally have a hard time adjusting to changes in sleep patterns. Unfortunately sleeping late on weekends doesn't make up for poor sleep during the week. If necessary, set an alarm for bedtime. Matthew emphasizes this is the #1 priority from the list.
+We should aim to go to bed and wake up at the same time each day. People generally have a hard time adjusting to changes in sleep patterns. Unfortunately, sleeping late on weekends doesn't make up for poor sleep during the week. If necessary, set an alarm for bedtime. Walker emphasizes this is the #1 priority from the list.
 
 ### 2. Don't exercise too late in the day
 
@@ -86,7 +85,7 @@ The presence of alcohol in the body can reduce your REM sleep, keeping you in th
 
 ### 5. Avoid large meals and beverages late at night
 
-A light snack before bed is okay, but a heavy meal can cause digestive issues, which interferes with sleep. Drinking too many fluids can cause frequent awakenings to urinate.
+A light snack before bed is okay, but a heavy meal can cause digestive issues, which interfere with sleep. Drinking too many fluids can cause frequent awakenings to urinate.
 
 ### 6. Avoid medicines that delay or disrupt your sleep
 

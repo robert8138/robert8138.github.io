@@ -6,7 +6,6 @@ isbn: "9780593070109"
 cover_id: "13124793"
 one_liner: "Give a good idea to a mediocre team and they will screw it up; give a mediocre idea to a great team and they will fix it."
 read: 2019
-notion_url: https://www.notion.so/Creativity-Inc-3f3e3fd7b3d94b739a985b0e9dbcff2c
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
@@ -15,20 +14,20 @@ notion_url: https://www.notion.so/Creativity-Inc-3f3e3fd7b3d94b739a985b0e9dbcff2
 
 Think of each statement as a starting point, as a prompt to a deeper inquiry, and not as a conclusion.
 
-- Give a good idea to a mediocre team, and they will screw it up. Give a mediocre idea to a great team, and they will even fix it, or get something better. Get the team right → chances are, they will get the idea right.
+- Give a good idea to a mediocre team, and they will screw it up. Give a mediocre idea to a great team, and they will either fix it or get something better. Get the team right → chances are, they will get the idea right.
 - When looking to hire people, give their potential to grow more weight than their current skill level. What they are capable of tomorrow is more important than what they can do today.
 - Always hire people who are smarter than you. Take a chance even if it seems like a potential threat.
 - If there are people in the organization who don't feel they are free to give suggestions, you lose. Do not discount ideas from unexpected sources. Inspiration can and does come from anywhere.
 - It isn't enough merely to be open to ideas from others. Engaging the collective brain power of the people is an active, ongoing process. As a manager, you must get ideas from your staff, and ask them to actively contribute.
 - There are many reasons why people are not candid with one another at work; your job as a manager is to figure out what those are and address them. Likewise, if someone disagrees with you, there's a reason. Our first job is to understand the reason behind their conclusion. Further, if there is fear in the organization, there's a reason for it; our job is (1) to find what's causing it, and (2) to understand it, and try to root it out.
-- There is nothing as effective when it comes to shutting down alternative viewpoints as being convinced you are right. In general, people are hesitant to say things that might rock the boat. Braintrust meetings, dailies, and Notes Day are all efforts to reinforce the idea that it's ok to express yourself. All are mechanisms of self-assessment that seek to uncover what's real.
+- There is nothing as effective when it comes to shutting down alternative viewpoints as being convinced you are right. In general, people are hesitant to say things that might rock the boat. Braintrust meetings, dailies, and Notes Day are all efforts to reinforce the idea that it's OK to express yourself. All are mechanisms of self-assessment that seek to uncover what's real.
 - If there is more truth in the hallways than in meetings, you have a problem.
 - Many managers feel that if they are not notified about problems before others are, or if they are surprised in a meeting, then that's a sign of disrespect. Get over it.
 - Careful messaging to downplay problems makes you appear to be lying, delusional, or uncaring. Sharing problems is an act of inclusion that makes employees feel invested in the larger enterprise.
 - The first conclusions we draw from our successes and failures are typically wrong.
 - Measuring the outcome without evaluating the process is deceiving.
 - Do not fall for the illusion that by preventing errors, you won't have errors to fix. The truth is, the cost of preventing errors is often far greater than the cost of fixing them.
-- Change and uncertainty are part of life. Our job is not to resist them, but to build the capability to recover when unexpected events occur. If you don't always try to uncover what's unseen and understand its nature, you will be ill-prepared to lead. Similarly, it's not the manager's job to prevent risk; it's the manager's job to make it safe to take them.
+- Change and uncertainty are part of life. Our job is not to resist them, but to build the capability to recover when unexpected events occur. If you don't always try to uncover what's unseen and understand its nature, you will be ill-prepared to lead. Similarly, it's not the manager's job to prevent risks; it's the manager's job to make it safe to take them.
 - Failure is a necessary evil. In fact, it's not an evil at all. It's the necessary consequence of doing something new.
 - Trust doesn't mean you trust someone won't screw up. It means that you trust them even when they do screw up.
 - The people ultimately responsible for implementing a plan must be empowered to make decisions when things go wrong, even before getting approval. Finding and fixing problems is everybody's job. Anyone should be able to stop the production line.

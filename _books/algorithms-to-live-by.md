@@ -6,12 +6,11 @@ isbn: "9780007547999"
 cover_id: "8042539"
 one_liner: "Sometimes \"good enough\" really is good enough — and processes are what we have control over, not outcomes."
 read: 2019
-notion_url: https://www.notion.so/Algorithms-to-Live-By-639a25b8a0e64a85901b4b5b69c5e053
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
 
-[Source 1](https://hackernoon.com/algorithms-to-live-by-book-review-77f53d63fa78) and [Source 2](https://fluidself.org/books/science/algorithms-to-live-by/): The summary is copied completely verbatim from the book summary. If I feel adventurous in the future, I could even document and add more links to the paper / algorithm that were described in the book.
+Drawn from [Source 1](https://hackernoon.com/algorithms-to-live-by-book-review-77f53d63fa78) and [Source 2](https://fluidself.org/books/science/algorithms-to-live-by/), which form the basis for the summary below.
 
 ## Optimal Stopping
 
@@ -25,7 +24,7 @@ It's Saturday and it's your cheat day. Do you open Yelp and explore a new restau
 
 Simply put, exploration is gathering information, and exploitation is using the information you have to get a known good result. When balancing favorite experiences and new ones, nothing matters as much as the interval over which we plan to enjoy them.
 
-From A/B testing websites to A/B testing human drugs via clinical trials, software engineers and pharmaceutical companies alike are trying to figure out where the balance lies. In addition to discussing a number of strategies like the `Win-Stay, Lose-Shift` algorithm: choose an arm at random, and keep pulling it as long as it keeps paying off. If the arm doesn't pay off after a particular pull, then switch to the other one. Although this simple strategy is far from a complete solution, Robbins proved in 1952 that it performs reliably better than chance. Exploration in itself has value, since trying new things increases our chances of finding the best. So taking the future into account, rather than focusing just on the present, drives us toward novelty.
+From A/B testing websites to A/B testing human drugs via clinical trials, software engineers and pharmaceutical companies alike are trying to figure out where the balance lies. The book also discusses a number of strategies like the `Win-Stay, Lose-Shift` algorithm: choose an arm at random, and keep pulling it as long as it keeps paying off. If the arm doesn't pay off after a particular pull, then switch to the other one. Although this simple strategy is far from a complete solution, Robbins proved in 1952 that it performs reliably better than chance. Exploration in itself has value, since trying new things increases our chances of finding the best. So taking the future into account, rather than focusing just on the present, drives us toward novelty.
 
 ### Regret and Optimism
 
@@ -39,7 +38,7 @@ Upper Confidence Bound algorithms implement a principle that has been dubbed "op
 
 ## Sorting
 
-Sorting algorithms are usually the first ones that any introductory Computer Science course covers. Topics discussed here go from the Big O notation that serves as a yardstick for measuring the performance of algorithms, to the bouquet of sorting algorithms themselves: `the bubble, insertion, merge and quick sorts`.
+Sorting algorithms are usually the first ones that any introductory Computer Science course covers. Topics discussed here go from the Big O notation that serves as a yardstick for measuring the performance of algorithms, to the bouquet of sorting algorithms themselves: `bubble`, `insertion`, `merge` and `quick` sorts.
 
 **Sort Is Prophylaxis for Search**: Computer science, as undergraduates are taught, is all about tradeoffs. And one of the most central tradeoffs is between sorting and searching. The basic principle is this: the effort expended on sorting materials is just a preemptive strike against the effort it'll take to search through them later. What the precise balance should be depends on the exact parameters of the situation, but thinking about sorting as valuable only to support future search tells us something surprising: err on the side of messiness. **Sorting something that you will never search is a complete waste; searching something you never sorted is merely inefficient.** The question, of course, becomes how to estimate ahead of time what your future usage will be.
 
@@ -67,7 +66,7 @@ A commitment to fastidiously doing the most important thing you can, if pursued 
 
 ### Context Switching
 
-Personally, we have found that both programming and writing require keeping in mind the state of the entire system, and thus carry inordinately large context-switching costs. A friend of ours who writes software says that the normal workweek isn't well suited to his workflow, since for him sixteen-hour days are more than twice as productive as eight-hour days. Brian, for his part, thinks of writing as a kind of blacksmithing, where it takes a while just to heat up the metal before it's malleable. He finds it somewhat useless to block out anything less than ninety minutes for writing, as nothing much happens in the first half hour except loading a giant block of "Now, where was I?" into his head.
+We have found that both programming and writing require keeping in mind the state of the entire system, and thus carry inordinately large context-switching costs. A friend of ours who writes software says that the normal workweek isn't well suited to his workflow, since for him sixteen-hour days are more than twice as productive as eight-hour days. Brian, for his part, thinks of writing as a kind of blacksmithing, where it takes a while just to heat up the metal before it's malleable. He finds it somewhat useless to block out anything less than ninety minutes for writing, as nothing much happens in the first half hour except loading a giant block of "Now, where was I?" into his head.
 
 If you find yourself doing a lot of context switching because you're tackling a heterogeneous collection of short tasks, you can also employ another idea from Computer Science: `Interrupt Coalescing`. If you have five credit card bills, for instance, don't pay them as they arrive; take care of them all in one go when the fifth bill comes. As long as your bills are never due less than thirty-one days after they arrive, you can designate, say, the first of each month as "bill-paying day," and sit down at that point to process every bill on your desk, no matter whether it came three weeks or three hours ago. Likewise, if none of your email correspondents require you to respond in less than twenty-four hours, you can limit yourself to checking your messages once a day. This is essentially `batching` TODOs.
 
@@ -81,7 +80,7 @@ Laplace's Law offers us the first simple rule of thumb for confronting small dat
 
 `Bayes' Rule` gives a remarkably straightforward solution to the problem of how to combine pre-existing beliefs with observed evidence: multiply their probabilities together. Notably, having some pre-existing beliefs is crucial for this formula to work. The richer the prior information we bring to Bayes's Rule, the more useful the predictions we can get out of it. Bayes's Rule tells us that when it comes to making predictions based on limited evidence, few things are as important as having good priors — that is, a sense of the distribution from which we expect that evidence to have come. Good predictions thus begin with having good instincts about when we're dealing with a normal distribution and when with a power-law distribution. As it turns out, Bayes's Rule offers us a simple but dramatically different predictive rule of thumb for each.
 
-`The Copernican Principle` emerges: if we want to predict how long something will last, and have no other knowledge about it whatsoever, the best guess we can make is that it will continue just as long as it's gone on so far. This is a key topic in the book Antifragile. Examining the Copernican Principle, we saw that when Bayes's Rule is given an uninformative prior, it always predicts that the total life span of an object will be exactly double its current age. In fact, the uninformative prior, with its wildly varying possible scales — the wall that might last for months or for millennia — is a power-law distribution.
+`The Copernican Principle` emerges: if we want to predict how long something will last, and have no other knowledge about it whatsoever, the best guess we can make is that it will continue just as long as it's gone on so far. This is a key topic in the book *Antifragile*. Examining the Copernican Principle, we saw that when Bayes's Rule is given an uninformative prior, it always predicts that the total life span of an object will be exactly double its current age. In fact, the uninformative prior, with its wildly varying possible scales — the wall that might last for months or for millennia — is a power-law distribution.
 
 - And for any `power-law distribution`, Bayes' Rule indicates that the appropriate prediction strategy is a **Multiplicative Rule**: multiply the quantity observed so far by some constant factor. For an uninformative prior, that constant factor happens to be 2, hence the Copernican prediction.
 - When we apply Bayes' Rule with a `normal distribution` as a prior, on the other hand, we obtain a very different kind of guidance. Instead of a multiplicative rule, we get an **Average Rule**: use the distribution's "natural" average — its single, specific scale — as your guide. For instance, if somebody is younger than the average life span, then simply predict the average; as their age gets close to and then exceeds the average, predict that they'll live a few years more.
@@ -127,7 +126,7 @@ Sampling: when we want to know something about a complex quantity, we can estima
 
 ## Networking
 
-`Packet Switching`, `ACKnowledgements`, `triple handshakes`, `exponential backoff` and the `algorithms of forgiveness`: networking is another topic full of gems. Connecting people is one of the most fundamental and impactful areas of Computer Science — we're talking about the internet here. How to control the flow, how to avoid congestions (`Additive Increase`, `Multiplicative Decrease`), how to establish `Backchannels` (and the role of white noise and little acknowledgments in everyday real-life conversations!), and how to avoid `buffer bloats`: these are some of the topics that are part of any Computer Networking class, but it was great to see them in a new light.
+`Packet Switching`, `ACKnowledgements`, `triple handshakes`, `exponential backoff` and the `algorithms of forgiveness`: networking is another topic full of gems. Connecting people is one of the most fundamental and impactful areas of Computer Science — we're talking about the internet here. How to control the flow, how to avoid congestion (`Additive Increase`, `Multiplicative Decrease`), how to establish `Backchannels` (and the role of white noise and little acknowledgments in everyday real-life conversations!), and how to avoid `buffer bloats`: these are some of the topics that are part of any Computer Networking class, but it was great to see them in a new light.
 
 ## Game Theory
 

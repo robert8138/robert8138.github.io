@@ -7,17 +7,9 @@ cover_id: "10635162"
 one_liner: "In conflict, only two of the three realities are known."
 read: 2021
 link: https://cardinalatwork.stanford.edu/building-exceptional-relationships-colleagues
-notion_url: https://www.notion.so/Connect-Building-Exceptional-Relationships-with-Family-Friends-and-Colleagues-f0153112aacb43f0908c44f071dc06b8
 ---
 
-<!--
-  Synced from Notion (Book Summary database). Notion is the source of truth.
-
-  This note is unfinished in Notion: several section headings were captured
-  with no content beneath them. They are listed as an outline at the foot of
-  this page rather than rendered as empty headings. A PDF attached to the
-  Notion page is also not carried over.
--->
+<!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
 
 ## The Book in Three Sentences
 
@@ -40,12 +32,3 @@ When in conflict, only two of the three realities are known:
 - Their intentions and objectives (only known to the other person)
 - Their behaviors (both of you know this)
 - Your reaction to their behaviors (only you know)
-
-## Still to Write
-
-These sections are headings in the Notion note with nothing under them yet:
-
-- Helping Others Be Known
-- Develop Influence in Balance
-- Breaking the Logjam (Having Hard Conversations)
-- Setting Boundaries and Expectations

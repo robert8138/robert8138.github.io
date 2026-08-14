@@ -7,14 +7,13 @@ cover_id: "9145348"
 one_liner: "It is price, not quality, that determines value: high-quality assets can be risky, and low-quality assets can be safe."
 read: 2021
 link: https://jamesclear.com/book-summaries/the-most-important-thing-illuminated
-notion_url: https://www.notion.so/The-Most-Important-Thing-Illuminated-1fbcfbde666f4ea08107b1e4b09285d9
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
 
 ## The Book in Three Sentences
 
-You can't do the same things others do and expect to outperform. The most dependable way to outperform the market is to buy something for less than its value. It is price, not quality that determines value: high-quality assets can be risky, and low-quality assets can be safe.
+You can't do the same things others do and expect to outperform. The most dependable way to outperform the market is to buy something for less than its value. It is price, not quality, that determines value: high-quality assets can be risky, and low-quality assets can be safe.
 
 ## Book Summary
 
@@ -47,7 +46,7 @@ First-level thinkers look for simple formulas and easy answers. Second-level thi
 
 Because theory says in an efficient market there's no such thing as investing skill (commonly referred to today as alpha) that would enable someone to beat the market, all the difference in return between one investment and another—or between one person's portfolio and another's—is attributable to differences in risk.
 
-In fact, the author believes that assets are often valued at other-than-fair prices, an asset class can deliver a risk-adjusted return that is significantly too high (a free lunch) or too low relative to other asset classes. The author tries to limit his efforts to relatively inefficient markets where hard work and skill would pay off best.
+In fact, the author believes that assets are often valued at other-than-fair prices, and that an asset class can deliver a risk-adjusted return that is significantly too high (a free lunch) or too low relative to other asset classes. The author tries to limit his efforts to relatively inefficient markets where hard work and skill would pay off best.
 
 For every person who gets a good buy in an inefficient market, someone else sells too cheap. One of the great sayings about poker is that "*in every game there's a fish. If you've played for 45 minutes and haven't figured out who the fish is, then it's you.*" The same is certainly true of inefficient market investing.
 
@@ -66,7 +65,7 @@ For investing to be reliably successful, an accurate estimate of **intrinsic val
 
 ### The Relationship Between Price & Value
 
-Investment success doesn't come from "**buying good things**," but rather from "**buying things well**". No asset is so good that it can't become a bad investment if bought at too high a price. And there are few assets so bad that they can't be a good investment when bought cheap enough.
+Investment success doesn't come from "**buying good things**," but rather from "**buying things well**." No asset is so good that it can't become a bad investment if bought at too high a price. And there are few assets so bad that they can't be a good investment when bought cheap enough.
 
 "**Well bought is half sold.**" By this we mean we don't spend a lot of time thinking about what price we're going to be able to sell a holding for, or when, or to whom, or through what mechanism. If you've bought it cheap, eventually those questions will answer themselves. If your estimate of intrinsic value is correct, over time an asset's price should converge with its value.
 
@@ -83,7 +82,7 @@ Investing consists of exactly one thing: dealing with the future. And because no
 - When you're considering an investment, your decision should be a function of the risk entailed as well as the potential return. Because of their dislike for risk, investors have to be **bribed with higher prospective returns to take incremental risks**. Riskier investments absolutely cannot be counted on to deliver higher returns. Why not? It's simple: if riskier investments reliably produced higher returns, they wouldn't be riskier!
 - **Loss** is what happens when risk meets adversity. Risk is the potential for loss if things go wrong. As long as things go well, loss does not arise. Risk gives rise to loss only when negative events occur in the environment. Negative events often can be more negative than we imagine.
 - **Risk of loss does not necessarily stem from weak fundamentals**. A fundamentally weak asset—a less-than-stellar company's stock, a speculative-grade bond or a building in the wrong part of town—can make for a very successful investment if bought at a low-enough price. **High risk, in other words, comes primarily with high prices**. The greatest risk doesn't come from low quality or high volatility. It comes from paying prices that are too high.
-- Most investors think quality, as opposed to price, is the determinant of whether something's risky. High quality assets can be risky, and low quality assets can be safe. Quite often "high-quality" companies sell for high prices, making them poor investments.
+- Most investors think quality, as opposed to price, is the determinant of whether something's risky. High-quality assets can be risky, and low-quality assets can be safe. Quite often "high-quality" companies sell for high prices, making them poor investments.
 
 ### Recognizing Risk
 
@@ -116,11 +115,11 @@ Great investors are those who take risks that are less than commensurate with th
 Investment markets follow a pendulum-like swing — between euphoria and depression, between celebrating positive developments and obsessing over negatives, and thus between overpriced and underpriced.
 
 - The main risks in investing are two: the **risk of losing money** and the **risk of missing opportunity**. It's possible to largely eliminate either one, but not both.
-- **The three stages of bull market**
+- **The three stages of a bull market**
   - The first, when a few forward-looking people begin to believe things will get better
   - The second, when most investors realize improvement is actually taking place
   - The third, when everyone concludes things will get better forever
-- **The three stages of bear market**
+- **The three stages of a bear market**
   - The first, when just a few thoughtful investors recognize that, despite the prevailing bullishness, things won't always be rosy
   - The second, when most investors recognize things are deteriorating
   - The third, when everyone's convinced things can only get worse
