@@ -7,7 +7,6 @@ cover_id: "10448941"
 one_liner: "Spend less than you earn, invest the surplus, avoid debt."
 read: 2025
 link: https://www.goodreads.com/book/show/30646587-the-simple-path-to-wealth
-notion_url: https://www.notion.so/The-Simple-Path-to-Wealth-219425fef8e68048ac3deec99bc9ac87
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
@@ -16,7 +15,7 @@ notion_url: https://www.notion.so/The-Simple-Path-to-Wealth-219425fef8e68048ac3d
 
 Introduces the core principle: build freedom by spending less than you earn, invest the surplus, and avoid debt. Collins explains **"F-you money"** — saving enough to give you real options — and why you don't need complex investing to grow wealth.
 
-- **Understanding Wealth**: Explores what wealth truly means — not fancy possessions, but the freedom to live life on your terms. Emphasizes contentment, gratitude, and recognizing when you have "enough."
+- **Understanding Wealth:** Explores what wealth truly means — not fancy possessions, but the freedom to live life on your terms. Emphasizes contentment, gratitude, and recognizing when you have "enough."
 - **Saving Money:** Covers cutting expenses, tracking spending, automating savings, and how to hit high savings rates — even 50% of your income — to accelerate your path to financial independence.
 - **Avoid Debt:** Addresses debt as one of the biggest obstacles to wealth. Advises prioritizing high-interest debt elimination, especially credit card and student loans. Offers a rough cutoff: >5% interest demands swift repayment.
 - **Why He Hates Financial Advisors:** Argues that many advisors serve themselves, not you. Promotes DIY investing in low-cost index funds to avoid unnecessary fees and conflicts of interest.
@@ -45,7 +44,7 @@ Introduces the core principle: build freedom by spending less than you earn, inv
 
 ## 🧱 Two-Fund Portfolio and Rebalancing Strategy
 
-JL Collins advocates for a simple, effective portfolio consisting of just two core funds.
+J. L. Collins advocates for a simple, effective portfolio consisting of just two core funds.
 
 ### ✅ The Two-Fund Portfolio
 
@@ -74,7 +73,7 @@ JL Collins advocates for a simple, effective portfolio consisting of just two co
 
 > 🧘 "Rebalancing matters far less than sticking to your plan and staying invested."
 
-### ⛔ What JL Collins Recommends Avoiding
+### ⛔ What J. L. Collins Recommends Avoiding
 
 - Over-diversifying with many funds
 - Frequently adjusting portfolio mix
@@ -83,7 +82,7 @@ JL Collins advocates for a simple, effective portfolio consisting of just two co
 
 ## 📈 Stocks
 
-Stocks represent ownership in businesses: As the price of goods and services rise (inflation), companies often raise prices, increasing revenue and profits. This means stock prices tend to keep up with or exceed inflation over time. Stocks are inflation-resistant, making them powerful for wealth preservation and growth in the long run.
+Stocks represent ownership in businesses: as the prices of goods and services rise (inflation), companies often raise prices, increasing revenue and profits. This means stock prices tend to keep up with or exceed inflation over time. Stocks are inflation-resistant, making them powerful for wealth preservation and growth in the long run.
 
 ### 🟢 1. Keep It Simple
 
@@ -166,7 +165,7 @@ Deflation means prices of goods and services are falling. This typically leads t
 
 When the Fed cuts rates, fixed income becomes more valuable. In a deflationary environment, your money is worth more tomorrow than today. So a bond that pays a fixed 3% interest becomes more attractive when everything else is declining in price.
 
-> Example: If everything else is shrinking in value, a predictable $300 annual payment from a bond.
+> Example: If everything else is shrinking in value, a predictable $300 annual payment from a bond becomes more valuable.
 
 ### 🧠 TL;DR — Collins' Bond Philosophy
 
@@ -176,17 +175,17 @@ When the Fed cuts rates, fixed income becomes more valuable. In a deflationary e
 
 ## 📈 Using Taxable Brokerage Accounts
 
-JL Collins strongly advocates for using taxable brokerage accounts alongside tax-advantaged retirement accounts. Here's how he recommends using them in each phase of your financial journey.
+J. L. Collins strongly advocates for using taxable brokerage accounts alongside tax-advantaged retirement accounts. Here's how he recommends using them in each phase of your financial journey.
 
 | Feature | **Roth IRA** | **Traditional IRA** | **401(k)** | **Taxable Brokerage** |
 | --- | --- | --- | --- | --- |
 | **Contribution Limit (2025)** | $7,000 | $7,000 | $23,000 (employee) + employer match + after-tax up to $70,000 total | No limit |
 | **Income Limit to Contribute** | ✅ Yes (direct Roth only) | ❌ Only affects deduction | ❌ None | ❌ None |
-| **Pre-tax or After-tax?** | After-tax | Pre-tax or after-tax | Pre-tax (Traditional) or After-tax (Roth 401k / Mega) | After-tax |
+| **Pre-tax or After-tax?** | After-tax | Pre-tax or after-tax | Pre-tax (Traditional) or After-tax (Roth 401(k) / Mega) | After-tax |
 | **Grows Tax-Free?** | ✅ Yes | ✅ Tax-deferred | ✅ Tax-deferred or tax-free | ❌ (but tax-efficient) |
 | **Tax on Withdrawal** | ❌ None (if qualified) | ✅ Income tax | ✅ Income tax (Traditional); ❌ None (Roth) | ✅ Capital gains |
 | **Withdrawal Penalty <59½** | ❌ On earnings only | ✅ 10% + tax | ✅ 10% + tax (some exceptions) | ❌ None |
-| **RMDs (at age 73+)** | ❌ None | ✅ Yes | ✅ Yes (Traditional 401k) | ❌ None |
+| **RMDs (at age 73+)** | ❌ None | ✅ Yes | ✅ Yes (Traditional 401(k)) | ❌ None |
 | **Use for Early Retirement** | ⚠️ Contributions only | 🚫 Rarely useful | 🚫 Complex | ✅ Fully accessible |
 | **Ideal Use Case** | Long-term tax-free growth | Lower-income years | High-income + employer match | Flexibility & early access |
 

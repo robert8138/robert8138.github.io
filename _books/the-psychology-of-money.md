@@ -6,7 +6,6 @@ isbn: "9780857199096"
 cover_id: "10389354"
 one_liner: "Doing well with money has a little to do with how smart you are and a lot to do with how you behave."
 read: 2021
-notion_url: https://www.notion.so/The-Psychology-of-Money-d9e2d09a876b4312aaf7ad252cb8278d
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->

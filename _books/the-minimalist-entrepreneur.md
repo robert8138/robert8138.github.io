@@ -7,15 +7,13 @@ cover_id: "10846857"
 one_liner: "Processize before you productize."
 read: 2025
 link: https://www.goodreads.com/book/show/56913172-the-minimalist-entrepreneur
-notion_url: https://www.notion.so/The-Minimalist-Entrepreneur-174425fef8e6808bad49c7883eb123f1
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
 
 ## What Got Me to This Book
 
-- While watching Lex Fridman's interview with Peter Levels ([YouTube](https://www.youtube.com/watch?v=oFtjKbXKqbg)), I learned that Peter was instrumental in starting the indie hacking movement. The interview was fascinating, and it made me wonder about other software engineers who left big tech companies to pursue this lifestyle.
-- After researching on ChatGPT, I discovered Sahil Lavingia, Pinterest's second employee, who founded [Gumroad](https://gumroad.com/). The table of contents of his book caught my attention, so I decided to read it.
+While watching Lex Fridman's interview with Pieter Levels ([YouTube](https://www.youtube.com/watch?v=oFtjKbXKqbg)), I learned that Pieter was instrumental in starting the indie hacking movement. The interview was fascinating, and it made me wonder about other software engineers who left big tech companies to pursue this lifestyle. Some research on ChatGPT turned up Sahil Lavingia, Pinterest's second employee and the founder of [Gumroad](https://gumroad.com/). The table of contents of his book caught my attention, so I decided to read it.
 
 ## Chapter 1: The Minimalist Entrepreneur
 
@@ -46,7 +44,7 @@ notion_url: https://www.notion.so/The-Minimalist-Entrepreneur-174425fef8e6808bad
 > - Identify problems
 > - Sell solutions
 >
-> Inevitably, it seems like this is a playbook of a knowledge worker, where you productize your skill sets and then you sell it to someone else. There's a lot of people who are doing this (Hamel and his consulting, Jason Liu on AI, and many others), but I do wonder if there's a better way, where you are translating pain points into products and not just selling yourself. I think the ideal of "productize oneself" is a little bit too specific and not really my style.
+> Inevitably, this is a knowledge worker's playbook: you productize your skill sets and then sell them to someone else. There are a lot of people doing this (Hamel and his consulting, Jason Liu on AI, and many others), but I do wonder if there's a better way, one where you translate pain points into products instead of just selling yourself. I think the idea of "productize oneself" is a little too specific, and not really my style.
 
 ## Chapter 3: Build As Little As Possible
 
@@ -66,11 +64,11 @@ Key ideas that reflect important principles for building sustainable businesses.
 - Look for patterns in how you solve problems repeatedly
 - Only turn processes into products once they're proven and well-understood
 
-These ideas connect because they both emphasize starting simple and evolving based on real customer feedback. It sounds somewhat familiar to Elon Musk's Algorithm described in Isaacson's book.
+These ideas connect because they both emphasize starting simple and evolving based on real customer feedback. It sounds somewhat similar to Elon Musk's Algorithm described in Isaacson's book.
 
 ## Chapter 4: Sell to Your First Hundred Customers
 
-This chapter emphasizes the importance of selling to your first hundred customers as a foundational step in building a sustainable business. He advocates for a hands-on, personalized approach to sales, starting with those closest to you and gradually expanding outward. The key steps include:
+This chapter emphasizes the importance of selling to your first hundred customers as a foundational step in building a sustainable business. Lavingia advocates for a hands-on, personalized approach to sales, starting with those closest to you and gradually expanding outward. The key steps include:
 
 - **Start with Personal Connections**: Begin by introducing your product or service to friends and family. Their feedback is invaluable for refining your offering and building initial traction.
 - **Engage with Your Community**: Leverage your existing community to find early adopters. Engage in one-on-one conversations to understand their needs and gather honest feedback.

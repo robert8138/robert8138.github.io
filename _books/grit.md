@@ -6,7 +6,6 @@ isbn: "9781443442329"
 cover_id: "7438753"
 one_liner: "Talent × effort = skill. Skill × effort = achievement. Effort counts twice."
 read: 2019
-notion_url: https://www.notion.so/Grit-The-Power-of-Passion-Perseverance-4b8f7568b94144819e760d34ce3f7a4c
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
@@ -22,7 +21,7 @@ Grit involves passion and perseverance:
 
 ### Effort Counts Twice
 
-Angela discussed her experience doing clever statistical analysis, and her advisor scorned her for not being able to have a theory. After much thought, she arrived at the following formula:
+Angela describes doing clever statistical analysis only to be scorned by her advisor for having no theory behind it. After much thought, she arrived at the following formula:
 
 ```
 talent × effort = skill
@@ -88,7 +87,7 @@ It isn't suffering that leads to hopelessness. It's suffering you think you can'
 
 `Cognitive Behavioral Therapy` — which aims to treat depression and other psychological maladies by helping patients think more objectively and behave in healthier ways — has shown that we can practice interpreting what happens to us and responding as an optimist would. When you keep searching for ways to change your situation for the better, you stand a chance of finding them. When you stop searching, assuming they can't be found, you guarantee they won't.
 
-`Carol Dweck` coined the term growth mindset: that people believe we can change. To get smarter, if you are given the right opportunities and support, and if you try hard enough, and if you believe you can do it, you will. Fixed mindsets, on the other hand, react to mistakes as though they're harmful and problematic.
+`Carol Dweck` coined the term growth mindset: the belief that we can change. If you are given the right opportunities and support, and if you try hard enough, and if you believe you can do it, you will get smarter. People with a fixed mindset, on the other hand, react to mistakes as though they're harmful and problematic.
 
 > "We think there is plasticity in that circuitry. If you experience adversity — something pretty potent — that you overcome on your own during your youth, you develop a different way of dealing with adversity later on. It's important that the adversity be pretty potent. Because these brain areas really have to wire together in some fashion, and that doesn't happen with just minor inconveniences."
 
@@ -112,9 +111,9 @@ Shopify founder Tobi Lütke's story:
 
 ### The Playing Fields of Grit
 
-As a parent and as a social scientist, Angela recommends that, as soon as your child is old enough, you find something they might enjoy doing outside of class and sign them up. In fact, if I could wave a magic wand, I'd have all the children in the world engage in at least one extracurricular activity of their choice, and as for those in high school, I'd require that they stick with at least one activity for more than a year.
+As a parent and as a social scientist, Angela recommends that, as soon as your child is old enough, you find something they might enjoy doing outside of class and sign them up. As she puts it: "If I could wave a magic wand, I'd have all the children in the world engage in at least one extracurricular activity of their choice, and as for those in high school, I'd require that they stick with at least one activity for more than a year."
 
-The key — these structured activities teach them life lessons beyond academics. You are learning from others, you're finding out more and more through experience what your priorities are, you're developing character.
+The key is that these structured activities teach life lessons beyond academics. The child learns from others, finds out through experience what their priorities are, and develops character.
 
 ## Conclusion
 

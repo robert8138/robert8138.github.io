@@ -6,7 +6,6 @@ isbn: "9780062872302"
 cover_id: "8365942"
 one_liner: "Tactical empathy — emotional intelligence on steroids."
 read: 2020
-notion_url: https://www.notion.so/Never-Split-the-Difference-a095e6e8bbd743838570b67fff74565f
 ---
 
 <!-- Synced from Notion (Book Summary database). Notion is the source of truth. -->
@@ -15,11 +14,12 @@ notion_url: https://www.notion.so/Never-Split-the-Difference-a095e6e8bbd74383857
 
 - [Reference summary](https://www.freshworks.com/freshsales-crm/sdr-sales-development-reps/summary-of-never-split-the-difference-blog/#Chapter1)
 - [Negotiation cheat sheet](https://www.slideshare.net/YanDavidErlich/never-split-the-difference-cheatsheet)
-- I learned about him on Master Class, and I also encountered him on Goodreads, and so I decided to give it a try. His story is just interesting and I love his book, because it's full of practical tips.
 
 ## Overview
 
-Chris Voss's book, [Never Split the Difference: Negotiating As If Your Life Depended On It](https://www.amazon.com/Never-Split-Difference-Negotiating-Depended-ebook/dp/B014DUR7L2), calls on his FBI career as their top hostage negotiator to equip readers with the negotiating skills needed to secure business deals. For author Chris Voss, the use of rational tools and techniques is not the most effective approach for negotiations. Instead, the key to success, especially in very dangerous negotiations, is **tactical empathy**, which he describes as "emotional intelligence on steroids." He also never believe in splitting the difference — "1 black shoe, and 1 brown shoe" is a complete failure.
+Chris Voss's book, [Never Split the Difference: Negotiating As If Your Life Depended On It](https://www.amazon.com/Never-Split-Difference-Negotiating-Depended-ebook/dp/B014DUR7L2), calls on his FBI career as their top hostage negotiator to equip readers with the negotiating skills needed to secure business deals. For author Chris Voss, the use of rational tools and techniques is not the most effective approach for negotiations. Instead, the key to success, especially in very dangerous negotiations, is **tactical empathy**, which he describes as "emotional intelligence on steroids." He also never believed in splitting the difference — "1 black shoe, and 1 brown shoe" is a complete failure.
+
+I love this book: his story is interesting, and it's full of practical tips.
 
 ## Chapter 1: The New Rules
 
@@ -27,15 +27,15 @@ Negotiation begins with the simple premise that humans want to be **accepted** a
 
 **Tactical empathy** is understanding the feelings and mindset of the other party at the moment and also hearing what is behind those feelings so that you can increase your influence in all the moments that follow. When you closely observe a person's face, gestures, and tone of voice, your brain begins to align with theirs in a process called neural resonance, and that gives you a window into what they think and feel.
 
-The goal of negotiation is **reveal surprises**, use negotiation to test hypotheses, uncover as much information as possible. Uncover what they **actually need** → get them **feeling safe** to talk about them.
+The goal of negotiation is to **reveal surprises**, use negotiation to test hypotheses, uncover as much information as possible. Uncover what they **actually need** → get them **feeling safe** to talk about them.
 
 ## Chapter 2: Be a Mirror
 
 ### Mirroring
 
-**Mirroring** works magic. Repeat the last three words (or the critical one to three words) of what someone has just said because we fear what is different and find comfort in similarity. Using mirroring encourages the other party to empathize and bond with you, keep people talking, buy your party some time, and eventually reveal their strategy. A study by psychologist Richard Wiseman on two groups of waiters concluded that the average tip of the waiters who mirrored was 70 percent more than of those who used positive reinforcement.
+**Mirroring** works magic. Repeat the last three words (or the critical one to three words) of what someone has just said because we fear what is different and find comfort in similarity. Using mirroring encourages the other party to empathize and bond with you, keep people talking, buy your party some time, and eventually reveal their strategy. A study by psychologist Richard Wiseman on two groups of waiters concluded that the average tip of the waiters who mirrored was 70 percent more than that of those who used positive reinforcement.
 
-You need to understand what the other party actually needs and get them feeling safe enough to talk about what they really want. Negotiation begins with listening to the other party, validating their concerns and emotions, building trust and creating a safety net that allows for real conversations. Trying to speed up the negotiation process is a mistake that many negotiators make. The problem with this is that, if you're in too much of a hurry, it can make the other party feel like they're not being heard, and you risk to undermine the rapport and trust that you've tried to build.
+You need to understand what the other party actually needs and get them feeling safe enough to talk about what they really want. Negotiation begins with listening to the other party, validating their concerns and emotions, building trust and creating a safety net that allows for real conversations. Trying to speed up the negotiation process is a mistake that many negotiators make. The problem with this is that, if you're in too much of a hurry, it can make the other party feel like they're not being heard, and you risk undermining the rapport and trust that you've tried to build.
 
 How to use mirroring:
 
@@ -63,7 +63,7 @@ According to Chris Voss, there are three types of voices available to negotiator
   - **"It *seems* like…"**
   - **"It *looks* like…"**
   - **"It *sounds* like…"**
-- In case of a negative labeling, replace negative labels with a positive, compassionate & solution based thought. Labeling negatives diffuse them, and labeling positives reinforce them.
+- In case of a negative labeling, replace negative labels with a positive, compassionate & solution-based thought. Labeling negatives diffuses them, and labeling positives reinforces them.
 
 Labeling helps de-escalate situations because it acknowledges the other party's feelings rather than continuing to act them out. The golden rule is to understand that you're dealing with a human who wants to be appreciated and understood. Labels can help reinforce positive perceptions and dynamics.
 
@@ -74,11 +74,13 @@ Sometimes, you can neutralize the negative by first saying:
 - List the worst things my counterpart can say about me
 - Use labels to reinforce & encourage positive perceptions
 - Remove "I understand" from your vocabulary. Never use it.
-- Some examples:
-  - **"Look, I am an asshole…"**
-  - **"You're going to think I haven't done my homework"**
-  - **"You're going to feel insulted by my offer"**
-  - **"I'm embarrassed to tell you my offer"**
+
+Some examples:
+
+- **"Look, I am an asshole…"**
+- **"You're going to think I haven't done my homework"**
+- **"You're going to feel insulted by my offer"**
+- **"I'm embarrassed to tell you my offer"**
 
 ## Chapter 4: Beware "Yes" — Master "No"
 
@@ -86,7 +88,7 @@ Pushing for a hard "Yes" doesn't get you any closer to a victory. It only irks t
 
 ### The Yes
 
-Yes are not always really yes or alignment. There are several situations when someone would say yes:
+A "yes" is not always really a yes or alignment. There are several situations when someone would say yes:
 
 - **Counterfeit:** This is one where the other party plans on saying "No" but feels that a "Yes" is an easier escape route.
 - **Confirmation:** This is a generally innocent, reflexive response to a black or white question.
@@ -142,8 +144,8 @@ Yes are not always really yes or alignment. There are several situations when so
 
 **Some tips:**
 
-- When someone said "We just want what's fair", the correct response is: **"Ok I apologize. Let's stop everything and go back to where I started treating you unfairly and we'll fix it."**
-- When someone said "We have given you a fair offer", the correct response is: **"Fair? It seems like you are ready to provide the evidence that supports that."**
+- When someone says "We just want what's fair", the correct response is: **"Ok I apologize. Let's stop everything and go back to where I started treating you unfairly and we'll fix it."**
+- When someone says "We have given you a fair offer", the correct response is: **"Fair? It seems like you are ready to provide the evidence that supports that."**
 
 ## Chapter 7: Calibrated Questions
 
@@ -167,7 +169,7 @@ Calibrated questions have the power to educate the other party on what the probl
 - **How does this affect the rest of your team?**
 - **How on board are the people not on this call?**
 
-Calibrated questions make the other party feel like they're in charge, but it's really you who is driving the conversation. Don't use "Can, Is, Are, Do, Does". Avoid question that can be answered as Yes that reveals just a tiny bit of information.
+Calibrated questions make the other party feel like they're in charge, but it's really you who is driving the conversation. Don't use "Can, Is, Are, Do, Does". Avoid questions that can be answered as Yes that reveals just a tiny bit of information.
 
 ## Chapter 8: Guarantee Execution
 
@@ -180,7 +182,7 @@ Negotiators are decision architects. As a negotiator, you have to dynamically an
   - The first time they agree to something, that's the first instance.
   - For the second instance, you can label or summarize what they said so they answer, "That's right."
   - And the third instance could be a calibrated "How" or "What" question about implementation, something like "What do you see as being the most difficult thing to get around?"
-- **The Pinocchio Effect:** A Harvard Business School study by professor Deepak Malhotra and his colleagues found that on an average, liars use more words than those telling the truth. They also tend to use more third-person pronouns. They also tend to use "We, they, them" instead of I — to distance themselves.
+- **The Pinocchio Effect:** A Harvard Business School study by professor Deepak Malhotra and his colleagues found that on average, liars use more words than those telling the truth. They also tend to use more third-person pronouns. They also tend to use "We, they, them" instead of I — to distance themselves.
 - **The Chris Discount:** People often get tired of hearing their own name. Switch tracks and use your name instead. This creates a sense of "forced empathy" and makes the other party see you as human.
 
 ### Deflecting Punches + Saying No
@@ -222,8 +224,8 @@ Before you head into a negotiation, carefully prepare your Ackerman plan. This w
 
 ### Different Kinds of Negotiators
 
-- **Analyst:** is all about acquiring facts and information. Time = preparation, silence = an opportunity to think. They are methodical and diligent, don't like surprises, prefers to work on their own, information aggregator, may appear to agree but just to agree to think about it.
-  - Doesn't like calibrated questions. Apologies have very little values. Hypersensitive to reciprocity.
+- **Analyst:** is all about acquiring facts and information. Time = preparation, silence = an opportunity to think. They are methodical and diligent, don't like surprises, prefer to work on their own, information aggregator, may appear to agree but just to agree to think about it.
+  - Doesn't like calibrated questions. Apologies have very little value. Hypersensitive to reciprocity.
   - Use data to convince them.
   - Worst enemy: assertive type.
 - **Accommodator:** Building relationship > making a deal. Time = relationship, silence = anger. Sociable, optimistic.
@@ -249,7 +251,7 @@ Black Swans are leverage multipliers. Discovering Black Swans that give you norm
 
 ### Why People Sometimes Act Crazy
 
-People acting crazy often time are not. Instead, chances are, your counterpart:
+People acting crazy often are not. Instead, chances are, your counterpart:
 
 - is **ill informed**: has incomplete information, or different from mine
 - is **constrained**: may not have the power to close a deal
